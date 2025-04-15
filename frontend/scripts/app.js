@@ -24,7 +24,43 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.classList.add('active');
         });
     });
-});});
+})
+
+const sections = {
+    home: document.getElementById("home-ui"),
+    shop: document.getElementById("shop-ui"),
+    checkout: document.getElementById("checkout-ui"),
+};
+
+tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+        // Remove 'active' class from all tabs
+        tabs.forEach((t) => t.classList.remove("active"));
+
+        // Add 'active' class to the clicked tab
+        tab.classList.add("active");
+
+        // Hide all sections
+        Object.values(sections).forEach((section) => {
+            section.style.display = "none";
+        });
+
+        // Show the corresponding section
+        const tabText = tab.textContent.trim().toLowerCase();
+        if (sections[tabText]) {
+            sections[tabText].style.display = "block";
+        }
+    });
+});
+;});
+
+document.getElementById("cart-button").onclick = function () {
+  document.getElementById("mySidebar").style.width = "250px";
+};
+
+document.getElementById("cart-button").onclick = function () {
+  document.getElementById("mySidebar").style.width = "0";
+};
 
 
 

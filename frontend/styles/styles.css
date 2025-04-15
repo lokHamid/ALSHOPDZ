@@ -1,13 +1,11 @@
 body , html{
-    background-color: #ffffff;
-    position: relative;
-    font-family: Arial, sans-serif;
-    margin: 0;
+    max-width: 1400px;
+    min-width: 800px;
+    margin: 0 auto; /* Center the layout horizontally */
     padding: 0;
-    width: 100%;
-    height: 100%;
     overflow-x: hidden;
-
+    position: relative;
+    font-family: 'Inter', sans-serif; /* Font family for the entire page */
 }
 
 .header {
@@ -42,6 +40,7 @@ footer{
     color: #ccc;
     font-size: 0.8rem;
     position: absolute;
+    border-top: 1px solid #ccc;
     margin: auto;
     left: 0;
     right: 0;
@@ -57,11 +56,18 @@ h4 {
 }
 
 .header-content {
-    display: flex; /* allows for horizontal alignment */
-    justify-content: space-between; /* space between elements */
-    align-items: center; /* aligns items vertically in the center */
-    gap: 10px;            /* space between elements */
-}  
+    display: flex;
+    justify-content: space-between; /* Space between the logo and the buttons */
+    align-items: center;
+    gap: 10px; /* Space between elements */
+    padding: 10px;
+}
+
+.header-buttons {
+    display: flex; /* Group buttons together */
+    gap: 10px; /* Space between the buttons */
+    margin-left: auto; /* Push the buttons to the right */
+}
 
 .icon {
     width: 200px;
@@ -69,32 +75,22 @@ h4 {
 }
   
 .search-field {
-    padding: 8px;
-    border: solid 1px gray;
-    border-radius: 2px;
-    flex-grow: 20; /* makes it stretch if needed */
-    width: 1400px;
-    max-width: 1300px; /* max width for the search field */
-    cursor: text;
-    font-size: 1.2rem;
-    justify-content: center;
-    line-height: 1;
-    margin: 0;
-    outline: none;
-    padding: 1rem 1.2rem;
-    text-align: left;
-    text-decoration: none;
-    transition: box-shadow .2s,-webkit-box-shadow .2s;
-    white-space: nowrap;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
+    flex-grow: 1;
+    width: 1000px;
+    height: 50px;
+    max-width: 1600px;
+    min-width: 200px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 1px solid gray;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 /* button styles ALL*/
 
 .header-content button {
-    align-items: center;
+    align-items: right;
     border-radius: 2px;
     gap: 10px;
     cursor: pointer;
@@ -111,37 +107,49 @@ h4 {
     position: relative;
     text-align: center;
     text-decoration: none;
-    transition: box-shadow .2s,-webkit-box-shadow .2s;
     white-space: nowrap;
     border: 0;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    max-width: 300px;
+    max-width: 150px;
 }
 
-
-.sign-in{
-    background-color: #ffffff;
-    color: #121212;
-    border: 1px solid #121212;
-}
-
-.cart-button{
-    background-color: crimson;
-    color: #ffffff;
+.sign-in {
+    background-color: white;
+    color: black;
     border: 1px solid #121212;
     margin-right: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    flex-shrink: 0;
+    max-width: 200px;
+    width: auto;
+    text-align: center;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.cart-button{
+    background-color: crimson;
+    color: white;
+    border: 1px solid #121212;
+    margin-right: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    flex-shrink: 0;
+    max-width: 200px;
+    width: auto;
+    text-align: center;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
 .sign-in:hover{
     background-color: #f3f3f3;
     color: black;
 }
-
 .cart-button:hover{
-    background-color: rgb(159, 17, 46);
-    color: white;
+    background-color: rgb(148, 21, 46);
 }
 
 .nav-bar {
@@ -170,12 +178,12 @@ h4 {
 }
 
 .tab.active {
-    color: red;
+    color: crimson;
 }
 
 .tab.active::after {
     content: "";
-    position: relative  ;
+    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
@@ -307,4 +315,14 @@ h4 {
     max-height: 400px;
     object-fit: cover;
     border-radius: 8px;
+}
+
+.home-ui h4 {
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 700;
+    color: #121212;
+    padding-left: 7px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
