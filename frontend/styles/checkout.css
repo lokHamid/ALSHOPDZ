@@ -1,0 +1,339 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+.head{
+    background-color: rgba(255, 255, 255, 1);
+    border-bottom: 0.4px solid rgba(179, 179, 179, 1);
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.logo {
+    padding: 0 10px;
+    width: 300px;
+    
+}
+
+.logo img {
+    height: 120px;
+    width: 300px;
+}
+.component{
+    background-color: rgba(248, 248, 248, 1);
+    display: flex;   
+    height: 100%;
+    width: 100%;
+}
+.left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 20px;
+    width: 70%;
+}
+.adress{
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100px;
+    
+}
+.adress .addd{
+    padding: 10px 15px;
+    font-size:24px;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+}
+.adress .add2{
+    border: none;
+    background: none;
+    outline: none;
+    text-align: left;
+    padding-left:  16px;
+    padding-bottom: 16px; 
+    font-size:16px;
+    color:rgba(195, 28, 28, 1);
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+.adress .add2:hover span{
+    color:crimson;
+}
+
+.payment{
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 12px;
+    box-shadow: 0 0.3px 1px rgba(0, 0, 0, 0.2);
+    //height: 100px;
+}
+.payment h2{
+    padding: 10px 15px;
+    font-size:24px;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+}
+.selectcard{
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    
+    gap: 10px;
+
+}
+.circle{
+    
+    background-color: rgba(255, 255, 255, 1);
+    border: 0.3px solid rgba(179, 179, 179, 1);
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+
+}
+.credit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    width: 25px;
+   
+}
+.selectcard p{
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+.card-type{
+    padding-bottom:20px ;
+    padding-left: 50px;
+    display: flex;
+    gap: 3px;
+}
+.card-type div{
+    border: 0.3px solid rgba(179, 179, 179, 1);
+    
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.card-type div img{
+    height: 20px;
+    width: 30px;
+}
+.product{
+    display: flex;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 1);
+   box-shadow: 0 0.3px 1px rgba(0, 0, 0, 0.2);
+   border-radius: 12px;
+}
+.img{
+    padding:10px 0px;
+}
+.img img{
+ height: 200px;
+ width: 200px;   
+}
+.info-device{
+    padding:10px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+.info-device h2{
+    font-weight: bold;
+    font-size: 24px;
+}
+.info-device h6{
+    color: rgba(142, 142, 142, 1);
+    font-size: 15px;
+    font-weight: bold;
+
+}
+.info-device p{
+    font-size: 32px;
+    font-weight: bold;
+    color: rgba(195, 28, 28, 1);
+}
+.quan{
+    padding-left: 25%;
+    padding-top: 7%;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: end;
+}
+.quantity{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    background-color:rgba(242, 242, 242, 1) ;
+    border-radius: 12px;
+    width: 150px;
+
+}
+.minus{
+    color: rgba(195, 28, 28, 1);
+    font-size: 32px;
+    font-weight: bold;
+    border: none;
+    background: none;
+    outline: none; 
+    cursor: pointer;
+}
+.add{
+    color: rgba(195, 28, 28, 1);
+    font-size: 32px;
+    font-weight: bold;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+}
+.quantity p{
+    font-size: bold;
+    font-size: 24px;
+}
+.delete{
+    background-color: rgba(255, 225, 225, 1);
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.delete i{
+    color: rgba(248, 89, 89, 1);
+}
+.right{
+
+   margin-top:30px;
+   border-radius: 12px;
+   box-shadow: 0 0.3px 1px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.right h1{
+    font-weight: bold;
+    font-size: 32px;
+    padding: 5px 15px;
+}
+.subtotal{
+    padding: 5px 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.subtotal h3{
+    font-size: 24px;
+    font-weight: bold;
+
+}
+.subtotal span{
+    font-size: 24px;
+    font-weight: bold;
+}
+.proma{
+    padding: 5px 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.proma h3{
+    font-size: 24px;
+    font-weight: bold;  
+}
+.proma button{
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.shipping-fee{
+    padding: 5px 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+}
+.shipping-fee h3{
+    font-size: 24px;
+    font-weight: bold;
+}
+.shipping-fee span{
+    font-size: 24px;
+    font-weight: bold;
+}
+.line{
+    height:0.2px;
+    margin: 10px;
+    background-color: rgba(179, 179, 179, 1);
+}
+.total{
+    padding: 8px 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;     
+}
+.total h3{
+    font-size: 32px;
+    font-weight: bold;
+}
+.total span{
+    font-size: 32px;
+    font-weight: bold;
+}
+#place-order{
+   margin-top: 10px;
+   margin-left: 15px;
+   margin-right:15px ;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    
+    outline: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+    background-color:rgba(195, 28, 28, 1) ;
+    cursor: pointer;
+}
+.terms{
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.terms a{
+    padding-left: 10px;
+    color: blue;
+}
+.scrollable{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 400px; /* or whatever you need */
+  overflow-y: auto;
+  padding-right: 8px;
+}
