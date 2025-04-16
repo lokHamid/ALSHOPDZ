@@ -1,11 +1,15 @@
 body , html{
-    max-width: 1400px;
-    min-width: 800px;
-    margin: 0 auto; /* Center the layout horizontally */
+    max-width: 2000px;
+    min-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 1;
+    margin: 0 auto;
     padding: 0;
     overflow-x: hidden;
     position: relative;
-    font-family: 'Inter', sans-serif; /* Font family for the entire page */
+    font-family: 'Inter', sans-serif;
 }
 
 .header {
@@ -20,10 +24,10 @@ footer{
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 50px; /* Adjust height as needed */
-    background-color: #f1f1f1; /* Footer background color */
-    text-align: center; /* Center the text */
-    padding: 10px; /* Padding for the footer content */
+    height: 50px;
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px;
 }
 
 .divider {
@@ -57,16 +61,17 @@ h4 {
 
 .header-content {
     display: flex;
-    justify-content: space-between; /* Space between the logo and the buttons */
+    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
-    gap: 10px; /* Space between elements */
+    gap: 10px;
     padding: 10px;
 }
 
 .header-buttons {
-    display: flex; /* Group buttons together */
-    gap: 10px; /* Space between the buttons */
-    margin-left: auto; /* Push the buttons to the right */
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
 }
 
 .icon {
@@ -76,10 +81,9 @@ h4 {
   
 .search-field {
     flex-grow: 1;
-    width: 1000px;
+    min-width: 700px;
     height: 50px;
     max-width: 1600px;
-    min-width: 200px;
     padding: 0.5rem 1rem;
     font-size: 1rem;
     border: 1px solid gray;
@@ -101,7 +105,6 @@ h4 {
     font-weight: 700;
     justify-content: center;
     line-height: 1;
-    margin: 0;
     outline: none;
     padding: 1rem 1.2rem;
     position: relative;
@@ -159,7 +162,7 @@ h4 {
 }
 
 .tab {
-    margin: 0 0px;
+    margin: 0px 10px 0px;
     padding: 10px 20px;
     cursor: pointer;
     color: gray;
@@ -317,12 +320,140 @@ h4 {
     border-radius: 8px;
 }
 
-.home-ui h4 {
+#home-ui h4 {
     font-size: 1.5rem;
-    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin: auto;
     font-weight: 700;
     color: #121212;
-    padding-left: 7px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 20px;
 }
+
+/* Sidebar styles */
+.cart-sidebar {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 0;
+    right: -500px;
+    min-width: 300px;
+    height: 100%;
+    background-color: #f4f4f4;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    transition: right 0.3s ease;
+    z-index: 1000;
+}
+.cart-sidebar h2 {
+    margin-left: 10px;
+}
+
+.cart-sidebar.open {
+    right: 0;
+}
+.top-sidebar-section{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.close-btn {
+    margin-right: 20px;
+    min-width: 30   px;
+    font-size: 1.4rem;
+    background-color: transparent;
+    color: black;
+    border: none;
+}
+.close-btn:hover {
+    background-color: #b5b5b5;
+    color: black;   
+    cursor: pointer;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+
+.carted-products-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    overflow-y: scroll;
+    align-items: start;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.cart-item{
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: flex-start;
+    border-radius: 8px;
+    padding: 5px;
+    text-align: right;
+    img {   
+        min-width: 100px;
+        max-height: 110px;
+        border-radius: 8px;
+    }
+}
+
+.cart-item-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    gap: 10px;
+    padding: 10px;
+    .cart-item-name, .cart-item-quant{
+        font-weight: bolder;
+        font-size: 95%;
+    }
+}
+
+#cart-total{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    p {
+        margin: 5px 15px 0px;
+        font-weight: bolder;
+    }
+}
+#cart-total .price{
+    color: crimson;
+    font-weight: bolder;
+}
+.bottom-sidebar-section .checkout-btn{
+    margin: 15px;
+    border-radius: 0;
+    border: none;
+    background-color: crimson;
+    color: white;
+    font-weight: bold;
+    font-size: 2dvh;
+    min-height: 6dvh;
+}
+
+.bottom-sidebar-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+
+/* start from cart item cards tomorrow.
+NEED TO SET CHECKOUT ITEMS AT THE BOTTOM OF THE COLUMN + USE COLUMN LAYOUT FOR THE CART DETAILS
+nchallh ani myet bl3ya drk.*/

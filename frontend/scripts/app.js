@@ -26,6 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 })
 
+// Function to handle tab switching
+
+/*
 const sections = {
     home: document.getElementById("home-ui"),
     shop: document.getElementById("shop-ui"),
@@ -51,7 +54,22 @@ tabs.forEach((tab) => {
             sections[tabText].style.display = "block";
         }
     });
-});
+});*/
+
+// Function to handle sidebar opening and closing
+    const sidebar = document.getElementById("sidebar");
+    const openSidebarBtn = document.getElementById("openSidebar");
+    const closeSidebarBtn = document.getElementById("closeSidebar");
+
+    // Open sidebar
+    openSidebarBtn.addEventListener("click", () => {
+        sidebar.classList.add("open");
+    });
+
+    // Close sidebar
+    closeSidebarBtn.addEventListener("click", () => {
+        sidebar.classList.remove("open");
+    });
 ;});
 
 document.getElementById("cart-button").onclick = function () {

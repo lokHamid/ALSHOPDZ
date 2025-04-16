@@ -5,97 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <title>ALSHOPDZ</title>
+    <title>Shop</title>
 </head>
 <body>
-    <!-- HEADER -->
-    <div class="header">
-        <!-- ALSHOPDZ ICON .. SEARCH FIELD .. SIGN IN .. CART-->
-        <div class="header-content">
-            <img src="../../../icon-nobg.png" alt="ALSHOPDZ" class="icon">
-            <div>
-                <input type="text" class="search-field" placeholder="Search The Market">
-            </div>
-            <div class="header-buttons">
-                <button class="sign-in"><i class="fa-regular fa-user"></i>Sign in</button>
-            <button id="openSidebar" class="cart-button"><i class="fa fa-cart-shopping"></i>Cart</button>
-            </div>
-        </div>
-          
-        <hr class="divider">
-        <!-- NAVIGATION BAR -->
-    
-        <div class="nav-bar">
-            <div class="tab active">HOME</div>
-            <div class="tab">SHOP</div>
-            <div class="tab">CHECKOUT</div>
+    <div id="shop-ui" class="ui-section" style="display: block;">
+        <h4>Category</h4>
+        <div class="selection">
+            <button class="category-btn active">Phones</button>
+            <button class="category-btn">Tablets</button>
+            <button class="category-btn">Laptops</button>
+            <button class="category-btn">Accessories</button>
         </div>
         <hr class="divider">
-    </div>
-    <!-- MAIN CONTENT -->
-
-    <main>
-        <!-- Sidebare here: only hidden on the following: checkout,-->
-        <div id="sidebar" class="cart-sidebar">
-
-            <div class="top-sidebar-section">
-                <div class="cart-header">
-                    <h2>Your Cart</h2>
-                    <button class="close-btn" id="closeSidebar">&times;</button>
-                </div>
-    
-                <div class="carted-products-col">
-                    <div class="cart-item">
-                        <img src="../../assets/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg" alt="Samsung Galaxy S25 Ultra" class="cart-image">
-                        <div class="cart-item-details">
-                            <label class="cart-item-name">Samsung Galaxy S25 Ultra</label>
-                            <label class="cart-item-quant">$1,099.00 * 3</label>
-                            <label class="cart-item-total">$3,297.00</label>
-                        </div>
-                    </div>
-                    <div class="cart-item">
-                        <img src="../../assets/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg" alt="Samsung Galaxy S25 Ultra" class="cart-image">
-                        <div class="cart-item-details">
-                            <label class="cart-item-name">Samsung Galaxy S25 Ultra</label>
-                            <label class="cart-item-quant">$1,099.00 * 3</label>
-                            <label class="cart-item-total">$3,297.00</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bottom-sidebar-section">
-                <div id="cart-total">
-                    <p>Total</p>
-                    <p class="price">$3,297.00</p>
-                </div>
-                <button class="checkout-btn">Checkout <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
+        <!-- Brand Selection Section-->
+        <h4>Brand</h4>
+        <div class="selection">
+            <button class="brand-btn active">Apple</button>
+            <button class="brand-btn">Samsung</button>
+            <button class="brand-btn">Huawei</button>
+            <button class="brand-btn">Xiaomi</button>
+            <button class="brand-btn">Oppo</button>
+            <button class="brand-btn">Nokia</button>
         </div>
-    </main>
+        <!-- Product Section -->
+        <hr class="divider">
 
-    <div id="home-ui" class="ui-section" style="display: block;">
-        <h4>Recent Products</h4>
         <div class="products-grid">
-            <div class="product-card">
-                <img src="../../assets/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg" alt="Samsung Galaxy S25 Ultra" class="product-image">
-                <p class="product-brand">Apple</p>
-                <label class="product-name">iPhone 16 pro max</label>
-                <label class="product-desc">Build For Apple Intelligence</label>
-                <hr class="card-divider">
-                <p class="product-instal-price">Starting At $30/month for 24 Months</p>
-                <p class="product-price">Full Price: $1,099.00</p>
-            </div>
-            <div class="product-card">
-                <img src="../../assets/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg" alt="Samsung Galaxy S25 Ultra" class="product-image">
-                <p class="product-brand">Apple</p>
-                <label class="product-name">iPhone 16 pro max</label>
-                <label class="product-desc">Build For Apple Intelligence</label>
-                <hr class="card-divider">
-                <p class="product-instal-price">Starting At $30/month for 24 Months</p>
-                <p class="product-price">Full Price: $1,099.00</p>
-            </div>
             <div class="product-card">
                 <img src="../../assets/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg" alt="Samsung Galaxy S25 Ultra" class="product-image">
                 <p class="product-brand">Apple</p>
@@ -171,11 +106,5 @@
             <!-- Add more product cards as needed -->
         </div>
     </div>
-
-    <footer>
-        <p>&copy; 2025 ALSHOPDZ. All rights reserved.</p>
-    </footer>
-
-    <script src="../../scripts/app.js"></script>
 </body>
 </html>
