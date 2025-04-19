@@ -8,76 +8,70 @@
     <title>ALSHOPDZ</title>
 </head>
 <body>
-    <!--<div class="header-content">
+    <div class="header-content">
         <img src="../../../icon-nobg.png" alt="ALSHOPDZ" class="icon">
-        <div>
+        <div class="search-container">
             <input type="text" class="search-field" placeholder="Search The Market">
         </div>
         <div class="header-buttons">
             <button class="sign-in"><i class="fa-regular fa-user"></i>Sign in</button>
-        <button id="openSidebar" class="cart-button"><i class="fa fa-cart-shopping"></i>Cart</button>
+            <button id="openSidebar" class="cart-button"><i class="fa fa-cart-shopping"></i>Cart</button>
         </div>
-    </div>-->
+    </div>
 
-    <div class="product-img-section">
-        <div class="product-head">
-            <h4 id="brand">Apple</h4>
-            <h4 id="product-name">iPhone 16 pro max</h4>
-            <h4 id="grad-text">Build For Apple Intelligence</h4>
+    <div class="product-dtls">
+        <div class="product-img-section">
+            <div class="product-head">
+                <h4 id="brand">Apple</h4>
+                <h4 id="product-name">iPhone 16 pro max</h4>
+                <h4 id="grad-text">Build For Apple Intelligence</h4>
+            </div>
+    
+            <div class="image-swapper">
+                <i class="fa-solid fa-chevron-left" id="swap-left-btn"></i>
+                
+                <div class="img-holder">    
+                  <img id="main-product-image" src="" alt="Product Image">
+                  <div class="img-dots" id="image-dots"></div>
+                </div>
+            
+                <i class="fa-solid fa-chevron-right" id="swap-right-btn"></i>
+              </div>
         </div>
-
-        <div class="image-swapper">
-            <i class="fa-solid fa-arrow-left" id="swap-left-btn"></i>
-
-            <div class="img-holder">
-                <img src="../../assets/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg" alt="iPhone 16 pro max" title="iPhone 16 pro max">
-                <div class="img-dots">
-                    <i class="fa-duotone fa-solid fa-circle active"></i>
-                    <i class="fa-duotone fa-solid fa-circle"></i>
-                    <i class="fa-duotone fa-solid fa-circle"></i>
-                    <i class="fa-duotone fa-solid fa-circle"></i>
+    
+        <div class="product-details-section">
+            <div class="color-selection">
+                <h2>Customize your device</h2>
+                <h5 class="current-selected-color"></h5>
+                <div class="color-options" id="colorButtons"></div>
+            </div>
+    
+            <hr>
+    
+            <div class="product-specs-section">
+                <div class="options-btns">
+                    <button>OPTION 1</button>
+                    <button>OPTION 1</button>
+                    <button>OPTION 1</button>
+                    <button>OPTION 1</button>
+                </div>
+    
+                <div class="spec-desc">
+                    $25.00 $0.00/month for 24 months with promotion
+                    Due today: $0.00 + tax & other charges
+                    
+                    <p class="price">Full price: $599.99 + tax</p>
+                    
+                    <p class="quant-parag">In stock, estimated ship date: April 14 - April 17 or get it faster by selecting Store Pickup on available items at checkout.</p>
                 </div>
             </div>
-
-            <i class="fa-solid fa-arrow-right" id="swap-right-btn"></i>
+    
+            <hr>
+    
+            <button><i class="fa-solid fa-cart-shopping"></i>ADD TO CART</button>
         </div>
     </div>
 
-    <div class="product-details">
-        <div class="color-selection">
-            <h2>Customize your device</h2>
-            <h5>Color: white</h5>
-            <div class="color-circles">
-                <button><i class="fa-solid fa-circle"></i></button>
-                <button><i class="fa-solid fa-circle"></i></button>
-                <button><i class="fa-solid fa-circle"></i></button>
-                <button><i class="fa-solid fa-circle"></i></button>
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="product-specs-section">
-            <div class="options-btns">
-                <button>OPTION 1</button>
-                <button>OPTION 1</button>
-                <button>OPTION 1</button>
-                <button>OPTION 1</button>
-            </div>
-
-            <div class="spec-desc">
-                $25.00 $0.00/month for 24 months with promotion
-                Due today: $0.00 + tax & other charges
-                
-                <p class="price">Full price: $599.99 + tax</p>
-                
-                <p class="quant-parag">In stock, estimated ship date: April 14 - April 17 or get it faster by selecting Store Pickup on available items at checkout.</p>
-            </div>
-        </div>
-
-        <hr>
-
-        <button><i class="fa-solid fa-cart-shopping"></i>ADD TO CART</button>
-    </div>
+    <script src="../../scripts/product_details.js"></script>
 </body>
 </html>

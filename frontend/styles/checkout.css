@@ -14,15 +14,11 @@
     justify-content: start;
     align-items: center;
 }
-.logo {
-    padding: 0 10px;
-    width: 300px;
-    
-}
 
 .logo img {
+    padding: 0 10px;
     height: 120px;
-    width: 300px;
+    width: 200px;   
 }
 .component{
     background-color: rgba(248, 248, 248, 1);
@@ -76,7 +72,7 @@
     justify-content: space-between;
     border-radius: 12px;
     box-shadow: 0 0.3px 1px rgba(0, 0, 0, 0.2);
-    //height: 100px;
+    height: 100px;
 }
 .payment h2{
     padding: 10px 15px;
