@@ -13,6 +13,7 @@
     display: flex;
     justify-content: start;
     align-items: center;
+    z-index: 30;
 }
 .logo {
     padding: 0 10px;
@@ -35,7 +36,7 @@
     flex-direction: column;
     gap: 20px;
     padding: 30px 20px;
-    width: 70%;
+    width: 78%;
 }
 .adress{
     background-color: rgba(255, 255, 255, 1);

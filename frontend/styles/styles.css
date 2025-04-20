@@ -1,6 +1,5 @@
 body , html{
-    max-width: 2000px;
-    min-width: 600px;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
