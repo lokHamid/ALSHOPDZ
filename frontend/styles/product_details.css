@@ -1,15 +1,10 @@
 body{
-    min-width: 800px;
-    max-width: 1900px;
     display: flex;
-    flex-grow: 0;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    flex-shrink: 1; 
+    overflow-x: hidden;
     font-family: 'Inter', sans-serif;
-    i {
-        font-size: large;
-    }
 }
 
 .product-img-section{
@@ -21,19 +16,152 @@ body{
     padding: 1%;
 }
 
+footer{
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px;
+}
+
+.divider {
+    background: gray;
+    display: flex;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 0;
+}
+
+/*header content css stuff , ( CANT BELIEVE IM REPEATING THIS )*/
+h4 {
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 700;
+    color: #121212;
+    padding-left: 7px;
+    padding-top: 5px;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+}
+.header-content .icon{
+    height: 120px;
+    width: 150px; 
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+.search-container{
+    flex: 1;
+    min-width: 0;
+}
+  
+.search-field {
+    flex: 1;
+    flex-grow: 1;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 1px solid gray;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* button styles ALL*/
+
+.header-content button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 1rem 1.2rem;
+    max-width: 150px;
+    font: 700 1.2rem 'Inter', sans-serif;
+    line-height: 1;
+    border: 0;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.sign-in {
+    background-color: white;
+    color: black;
+    border: 1px solid #121212;
+    margin-right: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    flex-shrink: 0;
+    max-width: 200px;
+    width: auto;
+    text-align: center;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.cart-button{
+    background-color: crimson;
+    color: white;
+    border: 1px solid #121212;
+    margin-right: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    flex-shrink: 0;
+    max-width: 200px;
+    width: auto;
+    text-align: center;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.sign-in:hover{
+    background-color: #f3f3f3;
+    color: black;
+}
+.cart-button:hover{
+    background-color: rgb(148, 21, 46);
+}
+
 
 /* product title desc and brand section*/
+
+.product-dtls{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.product-img-section{
+    flex: 1;
+    align-self: start;
+}
 
 .product-head{
     padding: 0;
     margin: 0;
-    display: block;
     align-items: start;
     h4{
         margin: 0;
-        padding: 1%;
+        padding: 0.2%;
     }
-
     #brand{
         font-size: 1rem;
         font-weight: 400;
@@ -58,18 +186,19 @@ body{
 
 .image-swapper{
     display: flex;
-    flex-direction: row;
-    justify-content: start;
+    justify-content: center ;
+    margin: 40px;
     align-items: center;
     align-self: center;
+    height: 400px;
+    width: 400px;
 
     img{
         max-width: 500px;
         max-height: 300px;
-        border-radius: 8px;
+        height: 100%;
+        border-radius: 6px;
     }
-
-
 }
 
 .img-holder{
@@ -79,12 +208,24 @@ body{
     justify-content: flex-start;
     align-items: center;
 }
-.img-dots{
-    padding: 2%;
-    margin: 10px 0 0 0;
+
+/* Replace .dot styles with these */
+.img-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
 }
-.img-dots .active{
-    color: gray;
+  
+.img-dots i {
+    font-size: 10px;
+    color: #ccc;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.img-dots i.active {
+    color: #333;
+    transform: scale(1.3);
 }
 
 #swap-right-btn, #swap-left-btn{
@@ -103,7 +244,64 @@ body{
 
 
 
-.product-details{
+.product-details-section{
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
     min-width: 0;
+    align-self: start;
+}
+
+/* color btns*/
+
+.color-options{
+    display: flex;
+    overflow-x: scroll;
+}
+.color-btn {
+    width: 30px;    
+    height: 30px;
+    margin: 3px;
+    padding: 15px;  
+    border: 4px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+  
+.color-btn:hover {
+    transform: scale(1.1);
+}
+  
+.color-btn.selected {
+    border-color: black;
+}
+
+/* options buttons*/
+
+.options-btns button{
+    margin: 10px 3px;
+    margin-left: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s;
+    border: solid 2px gray;
+    border-radius: 20px;
+}
+.category-btn:hover {
+    background-color: #f3f3f3;
+    color: black;
+}
+.category-btn:active {
+    background-color: #e0e0e0;
+    color: black;
+}
+.category-btn.active {
+    color: white;
+    background-color: black;
 }
