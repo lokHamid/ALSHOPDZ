@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
-    <link rel="stylesheet" href="../styles/products.css">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../styles/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -16,10 +16,7 @@
             <div class="search-container">
                 <input type="text" class="search-field" placeholder="Search The Market">
             </div>
-            <div class="header-buttons">
-                <button class="profile-btn"></button>
-                <button id="openSidebar" class="products-add-btn"><i class="fa fa-plus"></i>Products</button>
-            </div>
+            <button class="profile-btn"></button>   
         </div>
           
         <hr class="divider">
@@ -31,6 +28,37 @@
             <div class="tab">Orders</div>
             <div class="tab">Users</div>
         </div>
+        <hr class="divider">
+
+        <div class="statistics">
+
+            <div class="stat-card" id="total-products">
+                <div class="header">
+                    <h2>Total Products</h2>
+                    <i class="fa-solid fa-box-archive"></i>
+                </div>
+                <h3 class="products-count">50,365</h3>
+            </div>
+
+            <div class="stat-card" id="active-orders">
+                <div class="header">
+                    <h2>All Orders</h2>
+                    <i class="fa-solid fa-shopping-cart"></i>
+                </div>
+                <h3 class="orders-count">50,365</h3>
+            </div>
+
+            <div class="stat-card" id="active-users">
+                <div class="header">
+                    <h2>Active Users</h2>
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <h3 class="users-count">50,365</h3>
+            </div>
+
+        </div>
+
+
         <hr class="divider">
     </div>
     <!-- MAIN CONTENT -->
@@ -138,6 +166,6 @@
         
     </div>
 
-    <script src="../scripts/products.js"></script>
+    <script src="../scripts/dashboard.js"></script>
 </body>
 </html>
