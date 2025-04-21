@@ -3,11 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../../styles/product_details.css">
+    <link rel="stylesheet" type="text/css" href="../styles/product_details.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>ALSHOPDZ</title>
 </head>
 <body>
+    <!-- side bar code (initially hidden)-->
+    <div id="sidebar" class="cart-sidebar">
+
+        <div class="top-sidebar-section">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <button class="close-btn" id="closeSidebar">&times;</button>
+            </div>
+
+            <div class="carted-products-col">
+                <div class="cart-item">
+                    <img src="../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg" alt="Samsung Galaxy S25 Ultra" class="cart-image">
+                    <div class="cart-item-details">
+                        <label class="cart-item-name">Samsung Galaxy S25 Ultra</label>
+                        <label class="cart-item-quant">$1,099.00 * 3</label>
+                        <label class="cart-item-total">$3,297.00</label>
+                    </div>
+                </div>
+                <div class="cart-item">
+                    <img src="../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg" alt="Samsung Galaxy S25 Ultra" class="cart-image">
+                    <div class="cart-item-details">
+                        <label class="cart-item-name">Samsung Galaxy S25 Ultra</label>
+                        <label class="cart-item-quant">$1,099.00 * 3</label>
+                        <label class="cart-item-total">$3,297.00</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-sidebar-section">
+            <div id="cart-total">
+                <p>Total</p>
+                <p class="price">$3,297.00</p>
+            </div>
+            <button class="checkout-btn">Checkout <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!--main stuff goes under:-->
+    <!--BUT i have something which is : dividers-->
+
     <div class="header-content">
         <img src="../../../icon-nobg.png" alt="ALSHOPDZ" class="icon">
         <div class="search-container">
@@ -18,6 +59,8 @@
             <button id="openSidebar" class="cart-button"><i class="fa fa-cart-shopping"></i>Cart</button>
         </div>
     </div>
+
+    <hr class="divider">
 
     <div class="product-dtls">
         <div class="product-img-section">
@@ -42,19 +85,18 @@
         <div class="product-details-section">
             <div class="color-selection">
                 <h2>Customize your device</h2>
-                <h5 class="current-selected-color"></h5>
+                <div class="current-selection">
+                    <span>Selected color: </span>
+                    <strong class="current-selected-color">None</strong>
+                </div>
                 <div class="color-options" id="colorButtons"></div>
             </div>
     
-            <hr>
+            <hr class="divider">
     
             <div class="product-specs-section">
-                <div class="options-btns">
-                    <button>OPTION 1</button>
-                    <button>OPTION 1</button>
-                    <button>OPTION 1</button>
-                    <button>OPTION 1</button>
-                </div>
+                <h3>Phone Options</h3>
+                <div class="options-btns-sec" id="options-btns-sec"></div>
     
                 <div class="spec-desc">
                     $25.00 $0.00/month for 24 months with promotion
@@ -66,12 +108,12 @@
                 </div>
             </div>
     
-            <hr>
+            <hr class="divider">
     
-            <button><i class="fa-solid fa-cart-shopping"></i>ADD TO CART</button>
+            <button class="cart-add-btn"><i class="fa-solid fa-cart-shopping"></i>ADD TO CART</button>
         </div>
     </div>
 
-    <script src="../../scripts/product_details.js"></script>
+    <script src="../scripts/product_details.js"></script>
 </body>
 </html>

@@ -1,14 +1,11 @@
 body , html{
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex-shrink: 1; 
-    overflow-x: hidden;
+    overflow-x: auto;
     font-family: 'Inter', sans-serif;
 }
-
-
 footer{
     position: relative;
     bottom: 0;
@@ -19,7 +16,6 @@ footer{
     text-align: center;
     padding: 10px;
 }
-
 .divider {
     background: gray;
     display: flex;
@@ -39,7 +35,6 @@ footer{
     left: 0;
     right: 0;
 }
-
 h4 {
     font-size: 1.5rem;
     margin: 0;
@@ -48,7 +43,6 @@ h4 {
     padding-left: 7px;
     padding-top: 5px;
 }
-
 .header-buttons {
     display: flex;
     gap: 10px;
@@ -85,11 +79,9 @@ h4 {
     border-radius: 4px;
     box-sizing: border-box;
 }
-
-/* button styles ALL*/
-
 .header-content button {
     display: inline-flex;
+    transition: all 0.2s;
     align-items: center;
     justify-content: center;
     gap: 10px;
@@ -98,25 +90,10 @@ h4 {
     font: 700 1.2rem 'Inter', sans-serif;
     line-height: 1;
     border: 0;
-    border-radius: 2px;
     cursor: pointer;
 }
-
-.sign-in {
-    background-color: white;
-    color: black;
-    border: 1px solid #121212;
-    margin-right: 10px;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    flex-shrink: 0;
-    max-width: 200px;
-    width: auto;
-    text-align: center;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-.cart-button{
+.products-add-btn {
+    border-radius: 0;
     background-color: crimson;
     color: white;
     border: 1px solid #121212;
@@ -130,13 +107,23 @@ h4 {
     border-radius: 5px;
     box-sizing: border-box;
 }
-
-.sign-in:hover{
-    background-color: #f3f3f3;
-    color: black;
-}
-.cart-button:hover{
+.products-add-btn:hover{
     background-color: rgb(148, 21, 46);
+}
+
+.profile-btn{
+    border: 3px solid transparent;
+    background-image: url("../../assets/images/profile-pic-from-google.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    width: 50px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 0 10px;
 }
 
 .nav-bar {
@@ -167,7 +154,6 @@ h4 {
 .tab.active {
     color: crimson;
 }
-
 .tab.active::after {
     content: "";
     position: absolute;
@@ -182,8 +168,7 @@ h4 {
 }
 
 .category-btn{
-    margin: 10px 3px;
-    margin-left: 5px;
+    margin: 20px 5px;
     padding: 10px 20px;
     cursor: pointer;
     background-color: white;
@@ -208,8 +193,7 @@ h4 {
 }
 
 .brand-btn{
-    margin: 10px 3px;
-    margin-left: 5px;
+    margin: 20px 5px;
     padding: 10px 20px;
     cursor: pointer;
     background-color: white;
@@ -232,18 +216,14 @@ h4 {
     color: white;
     background-color: black;
 }
-
-/* Product Card Styles */
-
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    padding: 20px;
+    padding: 15px;
     justify-items: center;
     align-items: start;
 }
-
 .product-card {
     background-color: #f9f9f9;
     position: relative;
@@ -251,7 +231,6 @@ h4 {
     border-radius: 8px;
     padding: 20px;
     text-align: left;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 .product-card .product-name {
@@ -290,8 +269,7 @@ h4 {
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
     cursor: pointer;
 }
 
@@ -303,141 +281,40 @@ h4 {
     object-fit: cover;
     border-radius: 8px;
 }
-
-#home-ui h4 {
-    font-size: 1.5rem;
+.manage-btns-section {
     display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-    margin: auto;
-    font-weight: 700;
-    color: #121212;
-    padding: 20px;
+    justify-content: start;
+    align-items: center;
+    button{
+        transition: all 0.2s;
+    }
 }
-
-/* Sidebar styles */
-.cart-sidebar {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    top: 0;
-    right: -500px;
-    min-width: 300px;
-    height: 100%;
-    background-color: #f4f4f4;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
-    overflow-y: auto;
-    transition: right 0.3s ease;
-    z-index: 1000;
+.delete-product-btn{
+    color: rgb(255, 65, 65);
+    font-size: 1.4rem;
+    background-color: rgb(252, 193, 193);
+    border: 0;
+    border-radius: 100%;
+    margin: 0 10px;
+    padding: 10px;
 }
-.cart-sidebar h2 {
-    margin-left: 10px;
-}
-
-.cart-sidebar.open {
-    right: 0;
-}
-.top-sidebar-section{
-    display: flex;
-    flex-direction: column;
-}
-
-
-.close-btn {
-    margin-right: 20px;
-    min-width: 30   px;
+.edit-product-btn{
+    color: black;
     font-size: 1.4rem;
     background-color: transparent;
-    color: black;
-    border: none;
+    border: 0;
+    border-radius: 100%;
+    margin: 0 10px;
+    padding: 10px;
 }
-.close-btn:hover {
-    background-color: #b5b5b5;
-    color: black;   
+
+
+.delete-product-btn:hover{
+    transform: scale(1.1);
     cursor: pointer;
 }
-
-.cart-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
+.edit-product-btn:hover{
+    background-color: #ccc;
+    transform: scale(1.1);
+    cursor: pointer;
 }
-
-
-.carted-products-col{
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    overflow-y: scroll;
-    align-items: start;
-    padding: 0;
-    margin-top: 15px;
-}
-
-.cart-item{
-    background-color: transparent;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: flex-start;
-    border-radius: 8px;
-    padding: 5px;
-    text-align: right;
-    img {   
-        min-width: 100px;
-        max-height: 110px;
-        border-radius: 8px;
-    }
-}
-
-.cart-item-details{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: start;
-    gap: 10px;
-    padding: 10px;
-    .cart-item-name, .cart-item-quant{
-        font-weight: bolder;
-        font-size: 95%;
-    }
-}
-
-#cart-total{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    p {
-        margin: 5px 15px 0px;
-        font-weight: bolder;
-    }
-}
-#cart-total .price{
-    color: crimson;
-    font-weight: bolder;
-}
-.bottom-sidebar-section .checkout-btn{
-    margin: 15px;
-    border-radius: 0;
-    border: none;
-    background-color: crimson;
-    color: white;
-    font-weight: bold;
-    font-size: 2dvh;
-    min-height: 6dvh;
-}
-
-.bottom-sidebar-section{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-}
-
-
-/* start from cart item cards tomorrow.
-NEED TO SET CHECKOUT ITEMS AT THE BOTTOM OF THE COLUMN + USE COLUMN LAYOUT FOR THE CART DETAILS
-nchallh ani myet bl3ya drk.*/
