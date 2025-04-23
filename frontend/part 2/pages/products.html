@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
     <link rel="stylesheet" href="../styles/products.css">
+    <link rel="stylesheet" href="../styles/addform.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -18,7 +20,7 @@
             </div>
             <div class="header-buttons">
                 <button class="profile-btn"></button>
-                <button id="openSidebar" class="products-add-btn"><i class="fa fa-plus"></i>Products</button>
+                <button id="openSidebar" onclick="openProductForm()" class="products-add-btn"><i class="fa fa-plus"></i>Products</button>
             </div>
         </div>
           
@@ -137,6 +139,13 @@
         </div>
         
     </div>
+    <div id="productModal" style="display: none;">
+        <div class="modal-box">
+          <div class="close-btn" onclick="closeModal()">&times;</div>
+          <div id="modalContent">Loading...</div>
+        </div>
+      </div>
+      
 
     <script src="../scripts/products.js"></script>
 </body>

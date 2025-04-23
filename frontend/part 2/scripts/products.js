@@ -24,3 +24,30 @@ document.addEventListener('DOMContentLoaded', () => {
           });
       });
     });
+    async function openProductForm() {
+        try {
+          const response = await fetch('addform.html');
+          const htmlText = await response.text();
+      
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(htmlText, 'text/html');
+          const mainDiv = doc.querySelector('.Main');
+      
+          const modalContent = document.getElementById('modalContent');
+          if (mainDiv) {
+            modalContent.innerHTML = '';
+            modalContent.appendChild(mainDiv);
+            document.getElementById('productModal').style.display = 'flex';
+          } else {
+            modalContent.textContent = "Failed to load form.";
+          }
+        } catch (error) {
+          console.error('Error loading form:', error);
+          document.getElementById('modalContent').textContent = "Error loading form.";
+        }
+      }
+      
+      function closeModal() {
+        document.getElementById('productModal').style.display = 'none';
+      }
+      

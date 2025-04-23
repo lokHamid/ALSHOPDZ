@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../styles/users.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="header">
+        <!-- ALSHOPDZ ICON .. SEARCH FIELD .. SIGN IN .. CART-->
+        <div class="header-content">
+            <img src="../../../icon-nobg.png" alt="ALSHOPDZ" class="icon">
+            <div class="search-container">
+                <input type="text" class="search-field" placeholder="Search The Market">
+            </div>
+            <button class="profile-btn"></button>   
+        </div>
+          
+        <hr class="divider">
+        <!-- NAVIGATION BAR -->
+    
+        <div class="nav-bar">
+            <div class="tab active">Dashboard</div>
+            <div class="tab">Products</div>
+            <div class="tab">Orders</div>
+            <div class="tab">Users</div>
+        </div>
+        <hr class="divider">
+    </div>
+    <!-- MAIN CONTENT -->
+    <div class="toggle-btns-section">
+        <div class="selection">
+            <button class="filter-btn active">All Orders</button>
+            <button class="filter-btn">Pending</button>
+            <button class="filter-btn">Delivered</button>
+            <button class="filter-btn">Shipped</button>
+            <button class="filter-btn">Cancelled</button>
+        </div>
+
+        <hr class="divider">
+    </div>
+    <!--productssection-->
+    <!--
+    <div class="table-header">
+                <span>Order #</span>
+                <span>image</span>
+                <span>Description</span>
+                <span>Order Date</span>
+                <span>Status</span>
+                <span>Buyer</span>
+                <span>Total</span>
+            </div>
+            <hr class="divider">
+
+            LEAVE THIS THING AS IT IS DAM OR JUST DELETE IT
+
+            <div class="orders-list">
+                <div class="order-row">
+                    <span class="order-id">887746437</span>
+                    <img src="" alt="" class="order-img">
+                    <span class="order-desc">Your Description Here</span>
+                    <span class="order-date">Your Date Here</span>
+                    <label class="order-status">Status here</label>
+                    <span class="order-buyer">AkramZennad</span>
+                    <span class="order-total">1022$</span>
+                </div>
+            </div>
+    -->
+
+    <div class="orders-box">   
+        <h3>Users</h3>
+        <div class="grid-table">
+            <!--head-->
+            <div class="grid-header">
+                <div class="grid-cell">ID #</div>
+                <div class="grid-cell">User Name</div>
+                <div class="grid-cell">Email</div>
+                <div class="grid-cell">Created At</div>
+                <div class="grid-cell">Status</div>
+                <div class="grid-cell">Role</div>
+                <div class="grid-cell">Actions</div>
+            </div>
+            
+            <div class="grid-row">
+                <div class="grid-cell">#88777878</div>
+                <div class="grid-cell"><span>ZennadAkram</span></div>
+                <div class="grid-cell">zennadakram@gmail.com</div>
+                <div class="grid-cell">25 Mar 2025</div>
+                <div class="grid-cell"><span class="status-badge completed">Completed</span></div>
+                <div class="grid-cell"><span class="status-badge admin">Admin</span></div>
+                <div class="manage-btns-section">
+                    <button class="delete-product-btn"><i class="fa-solid fa-trash"></i></button>
+                    <button class="edit-product-btn"><i class="fa-solid fa-pen-to-square"></i></button>
+                </div>
+            </div>
+            <div class="grid-row">
+                <div class="grid-cell">#88777878</div>
+                <div class="grid-cell"><span>ZennadAkram</span></div>
+                <div class="grid-cell">zennadakram@gmail.com</div>
+                <div class="grid-cell">25 Mar 2025</div>
+                <div class="grid-cell"><span class="status-badge completed">Completed</span></div>
+                <div class="grid-cell"><span class="status-badge completed">Admin</span></div>
+                <div class="manage-btns-section">
+                    <button class="delete-product-btn"><i class="fa-solid fa-trash"></i></button>
+                    <button class="edit-product-btn"><i class="fa-solid fa-pen-to-square"></i></button>
+                </div>
+            </div>
+            <div class="grid-row">
+                <div class="grid-cell">#88777878</div>
+                <div class="grid-cell"><span>ZennadAkram</span></div>
+                <div class="grid-cell">zennadakram@gmail.com</div>
+                <div class="grid-cell">25 Mar 2025</div>
+                <div class="grid-cell"><span class="status-badge completed">Completed</span></div>
+                <div class="grid-cell"><span class="status-badge active">Client</span></div>
+                <div class="manage-btns-section">
+                    <button class="delete-product-btn"><i class="fa-solid fa-trash"></i></button>
+                    <button class="edit-product-btn"><i class="fa-solid fa-pen-to-square"></i></button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="../scripts/orders.js"></script>
+</body>
+</html>
