@@ -251,7 +251,7 @@ h4 {
 
 .color-options{
     display: flex;
-    overflow-x: scroll;
+    overflow-x: auto;
     margin-left: 10px;
 }
 .color-btn {

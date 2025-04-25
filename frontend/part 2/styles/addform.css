@@ -143,6 +143,7 @@ h2{
     align-items: center;
     height: 120px;
     margin: 0 25px;   
+
 }
 .comb{
     width: 100%;
@@ -266,39 +267,46 @@ h3{
     flex-wrap: wrap;
     gap: 5px;
 }
-.barier-1{
+.barier{
+
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 height: 37px;
 width: 37px;
-border: 1px solid black;
+
 border-radius: 50%;
+
 }
 .color-1{
 background-color: rgba(217, 217, 217, 1);
 height: 30px;
 width: 30px;
 border-radius: 50%;
+cursor: pointer;
 }
+
 .color-2{
 background-color:rgba(0, 0, 0, 1) ;
 height: 30px;
 width: 30px;
 border-radius: 50%;
+cursor: pointer;
 }
 .color-3{
 background-color: rgba(21, 225, 191, 1);
 height: 30px;
 width: 30px;
 border-radius: 50%;
+cursor: pointer;
 }
 .color-4{
 background-color: rgba(195, 28, 28, 1);
 height: 30px;
 width: 30px;
 border-radius: 50%;
+cursor: pointer;
 }
 .version-sell{
     display: flex;

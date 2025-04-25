@@ -9,6 +9,46 @@
     <title>ALSHOPDZ</title>
 </head>
 <body>
+    <div id="sidebar" class="cart-sidebar">
+
+        <div class="top-sidebar-section">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <button class="close-btn" id="closeSidebar">&times;</button>
+            </div>
+
+            <div class="carted-products-col">
+                <div class="cart-item">
+                    <img src="../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg" alt="Samsung Galaxy S25 Ultra" class="cart-image">
+                    <div class="cart-item-details">
+                        <label class="cart-item-name">Samsung Galaxy S25 Ultra</label>
+                        <label class="cart-item-quant">$1,099.00 * 3</label>
+                        <label class="cart-item-total">$3,297.00</label>
+                    </div>
+                </div>
+                <div class="cart-item">
+                    <img src="../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg" alt="Samsung Galaxy S25 Ultra" class="cart-image">
+                    <div class="cart-item-details">
+                        <label class="cart-item-name">Samsung Galaxy S25 Ultra</label>
+                        <label class="cart-item-quant">$1,099.00 * 3</label>
+                        <label class="cart-item-total">$3,297.00</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-sidebar-section">
+            <div id="cart-total">
+                <p>Total</p>
+                <p class="price">$3,297.00</p>
+            </div>
+            <button class="checkout-btn" onclick="smoothNavigate('checkout.html')">
+                Checkout <i class="fa-solid fa-arrow-right"></i>
+              </button>
+              
+        </div>
+    </div>
+
     <!-- HEADER -->
     <div class="header">
         <!-- ALSHOPDZ ICON .. SEARCH FIELD .. SIGN IN .. CART-->
@@ -27,9 +67,9 @@
         <!-- NAVIGATION BAR -->
     
         <div class="nav-bar">
-            <div class="tab active">HOME</div>
-            <div class="tab">SHOP</div>
-            <div class="tab">CHECKOUT</div>
+            <div class="tab  active">HOME</div>
+            <div class="tab" data-target="shop.html">SHOP</div>
+            <div class="tab" data-target="checkout.html">CHECKOUT</div>
         </div>
         <hr class="divider">
     </div>
@@ -78,96 +118,6 @@
     <div id="home-ui" class="ui-section" style="display: block;">
         <h4>Recent Products</h4>
         <div class="products-grid">
-            <div class="product-card">
-                <img src="../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg" alt="Samsung Galaxy S25 Ultra" class="product-image">
-                <p class="product-brand">Apple</p>
-                <label class="product-name">iPhone 16 pro max</label>
-                <label class="product-desc">Build For Apple Intelligence</label>
-                <hr class="card-divider">
-                <p class="product-instal-price">Starting At $30/month for 24 Months</p>
-                <p class="product-price">Full Price: $1,099.00</p>
-            </div>
-            <div class="product-card">
-                <img src="../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg" alt="Samsung Galaxy S25 Ultra" class="product-image">
-                <p class="product-brand">Apple</p>
-                <label class="product-name">iPhone 16 pro max</label>
-                <label class="product-desc">Build For Apple Intelligence</label>
-                <hr class="card-divider">
-                <p class="product-instal-price">Starting At $30/month for 24 Months</p>
-                <p class="product-price">Full Price: $1,099.00</p>
-            </div>
-            <div class="product-card">
-                <img src="../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg" alt="Samsung Galaxy S25 Ultra" class="product-image">
-                <p class="product-brand">Apple</p>
-                <label class="product-name">iPhone 16 pro max</label>
-                <label class="product-desc">Build For Apple Intelligence</label>
-                <hr class="card-divider">
-                <p class="product-instal-price">Starting At $30/month for 24 Months</p>
-                <p class="product-price">Full Price: $1,099.00</p>
-            </div>
-            <div class="product-card">
-                <img src="../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg" alt="Samsung Galaxy S25 Ultra" class="product-image">
-                <p class="product-brand">Apple</p>
-                <label class="product-name">iPhone 16 pro max</label>
-                <label class="product-desc">Build For Apple Intelligence</label>
-                <hr class="card-divider">
-                <p class="product-instal-price">Starting At $30/month for 24 Months</p>
-                <p class="product-price">Full Price: $1,099.00</p>
-            </div>
-            <div class="product-card">
-                <img src="../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg" alt="Samsung Galaxy S25 Ultra" class="product-image">
-                <p class="product-brand">Apple</p>
-                <label class="product-name">iPhone 16 pro max</label>
-                <label class="product-desc">Build For Apple Intelligence</label>
-                <hr class="card-divider">
-                <p class="product-instal-price">Starting At $30/month for 24 Months</p>
-                <p class="product-price">Full Price: $1,099.00</p>
-            </div>
-            <div class="product-card">
-                <img src="../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg" alt="Samsung Galaxy S25 Ultra" class="product-image">
-                <p class="product-brand">Apple</p>
-                <label class="product-name">iPhone 16 pro max</label>
-                <label class="product-desc">Build For Apple Intelligence</label>
-                <hr class="card-divider">
-                <p class="product-instal-price">Starting At $30/month for 24 Months</p>
-                <p class="product-price">Full Price: $1,099.00</p>
-            </div>
-            <div class="product-card">
-                <img src="../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg" alt="Samsung Galaxy S25 Ultra" class="product-image">
-                <p class="product-brand">Apple</p>
-                <label class="product-name">iPhone 16 pro max</label>
-                <label class="product-desc">Build For Apple Intelligence</label>
-                <hr class="card-divider">
-                <p class="product-instal-price">Starting At $30/month for 24 Months</p>
-                <p class="product-price">Full Price: $1,099.00</p>
-            </div>
-            <div class="product-card">
-                <img src="../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg" alt="Samsung Galaxy S25 Ultra" class="product-image">
-                <p class="product-brand">Apple</p>
-                <label class="product-name">iPhone 16 pro max</label>
-                <label class="product-desc">Build For Apple Intelligence</label>
-                <hr class="card-divider">
-                <p class="product-instal-price">Starting At $30/month for 24 Months</p>
-                <p class="product-price">Full Price: $1,099.00</p>
-            </div>
-            <div class="product-card">
-                <img src="../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg" alt="Samsung Galaxy S25 Ultra" class="product-image">
-                <p class="product-brand">Apple</p>
-                <label class="product-name">iPhone 16 pro max</label>
-                <label class="product-desc">Build For Apple Intelligence</label>
-                <hr class="card-divider">
-                <p class="product-instal-price">Starting At $30/month for 24 Months</p>
-                <p class="product-price">Full Price: $1,099.00</p>
-            </div>
-            <div class="product-card">
-                <img src="../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg" alt="Samsung Galaxy S25 Ultra" class="product-image">
-                <p class="product-brand">Apple</p>
-                <label class="product-name">iPhone 16 pro max</label>
-                <label class="product-desc">Build For Apple Intelligence</label>
-                <hr class="card-divider">
-                <p class="product-instal-price">Starting At $30/month for 24 Months</p>
-                <p class="product-price">Full Price: $1,099.00</p>
-            </div>
             <!-- Add more product cards as needed -->
         </div>
     </div>

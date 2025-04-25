@@ -154,6 +154,7 @@ h4 {
 .nav-bar {
     display: flex;
     justify-content: left;
+    padding-top: 15px;
     height: 50px;
 }
 .nav-bar div{
@@ -194,7 +195,20 @@ h4 {
     background-color: red;
     border-radius: 2px;
 }
-
+.selection{
+    border-bottom: 1px solid #ccc;
+    
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+.select-in{
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px 0;
+}
 .category-btn{
     margin: 10px 3px;
     margin-left: 5px;
@@ -202,10 +216,11 @@ h4 {
     cursor: pointer;
     background-color: white;
     color: black;
-    font-weight: bold;
+    font-weight: bolder;
     position: relative;
     transition: color 0.3s;
-    border: solid 2px gray;
+    border: solid 2px black;
+    font-size: 18px;
     border-radius: 20px;
 }
 .category-btn:hover {
@@ -231,7 +246,8 @@ h4 {
     font-weight: bold;
     position: relative;
     transition: color 0.3s;
-    border: solid 2px gray;
+    border: solid 2px black;
+    font-size: 18px;
     border-radius: 20px;
 }
 .brand-btn:hover {
@@ -267,7 +283,15 @@ h4 {
     text-align: left;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
+   transform: translateY(20px);
+  animation: fadeInUp 2s ease forwards;
 }
+@keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 .product-card .product-name {
     font-size: 1.2rem;
     font-weight: bold;

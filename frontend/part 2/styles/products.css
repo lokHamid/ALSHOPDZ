@@ -23,13 +23,13 @@ body , html{
   .modal-box {
     background: #fff;
     border-radius: 10px;
-    width: auto; /* Allow the width to adjust automatically */
-    height: auto; /* Allow the height to adjust automatically */
-    max-width: 800px; /* You can adjust this if needed */
-    max-height: 90vh; /* Adjust max-height if necessary */
-    overflow-y: auto; /* Ensure content doesn't overflow */
-    padding: 0; /* No padding */
-    margin: 0; /* No margin */
+    width: auto; 
+    height: auto; 
+    max-width: 800px; 
+    max-height: 90vh; 
+    overflow-y: auto; 
+    padding: 0; 
+    margin: 0; 
     overflow-x: hidden;
   }
   
@@ -39,8 +39,8 @@ body , html{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0; /* Remove padding */
-    margin: 0; /* Remove margin */
+    padding: 0; 
+    margin: 0; 
     box-sizing: border-box;
   }
   
