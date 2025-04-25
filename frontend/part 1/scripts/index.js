@@ -8,6 +8,11 @@ const products = [
       imgSrc: "../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
       instalment: "Starting At $30/month for 24 Months",
       price: "Full Price: $1,099.00"
+      ,colors: ["#0000ff", "#ffff00", "#ff00ff"],
+      images: ["../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
+        "../../assets/images/images.jpg"
+      ],
+  options: ["6GB/128GB", "8GB/128GB"]
     },
     {
         brand: "Samsung",
@@ -16,6 +21,11 @@ const products = [
         imgSrc: "../../assets/images/GALAXY_S25_ULTRA_IMAGE.jpg",
         instalment: "Starting At $30/month for 24 Months",
         price: "Full Price: $1,099.00"
+        ,colors: ["#0000ff", "#ffff00", "#ff00ff"],
+      images: ["../../assets/images/GALAXY_S25_ULTRA_IMAGE.jpg",
+        "../../assets/images/images.jpg"
+      ],
+  options: ["6GB/128GB", "8GB/128GB"]
       },
       {
         brand: "Apple",
@@ -24,6 +34,11 @@ const products = [
         imgSrc: "../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
         instalment: "Starting At $30/month for 24 Months",
         price: "Full Price: $1,099.00"
+        ,colors: ["#0000ff", "#ffff00", "#ff00ff"],
+      images: ["../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
+        "../../assets/images/images.jpg"
+      ],
+  options: ["6GB/128GB", "8GB/128GB"]
       },
       {
         brand: "Apple",
@@ -32,6 +47,11 @@ const products = [
         imgSrc: "../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
         instalment: "Starting At $30/month for 24 Months",
         price: "Full Price: $1,099.00"
+        ,colors: ["#0000ff", "#ffff00", "#ff00ff"],
+      images: ["../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
+        "../../assets/images/images.jpg"
+      ],
+  options: ["6GB/128GB", "8GB/128GB"]
       },
       {
         brand: "Apple",
@@ -40,6 +60,11 @@ const products = [
         imgSrc: "../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
         instalment: "Starting At $30/month for 24 Months",
         price: "Full Price: $1,099.00"
+        ,colors: ["#0000ff", "#ffff00", "#ff00ff"],
+      images: ["../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
+        "../../assets/images/images.jpg"
+      ],
+  options: ["6GB/128GB", "8GB/128GB"]
       },
       {
         brand: "Apple",
@@ -48,6 +73,11 @@ const products = [
         imgSrc: "../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
         instalment: "Starting At $30/month for 24 Months",
         price: "Full Price: $1,099.00"
+        ,colors: ["#0000ff", "#ffff00", "#ff00ff"],
+      images: ["../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
+        "../../assets/images/images.jpg"
+      ],
+  options: ["6GB/128GB", "8GB/128GB"]
       },
    
   ];
@@ -63,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
       products.forEach(product => {
         const card = document.createElement("div");
         card.classList.add("product-card");
-    
+      
         card.innerHTML = `
           <img src="${product.imgSrc}" alt="${product.name}" class="product-image">
           <p class="product-brand">${product.brand}</p>
@@ -73,9 +103,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <p class="product-instal-price">${product.instalment}</p>
           <p class="product-price">${product.price}</p>
         `;
-    
+      
+        card.addEventListener('click', () => {
+          localStorage.setItem('selectedProduct', JSON.stringify(product));
+          window.location.href = "product_details.html";
+        });
+      
         grid.appendChild(card);
       });
+      
     const tabs = document.querySelectorAll('.tab');
 
   tabs.forEach(tab => {
@@ -91,6 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const cards=document.querySelectorAll(".product-card");
         cards.forEach((card)=>{
         card.addEventListener('click',()=>{
+          
          window.location.href="product_details.html";
         });
         });

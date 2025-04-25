@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/adress.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+</head>
+<body>
+    <div class="payment">
+        <h1>Payment card</h1>
+        <div class="number-name">
+        <input type="number" class="number-card" placeholder="Card number">
+        <input type="text" class="name-card" placeholder="Name on card">
+        </div>
+        <div class="info-card">
+            <input type="month" class="name-card" placeholder="Name on card">
+            <input type="date" id="year" name="year" onchange="getYear()" />
+            <input type="number" class="number-card" placeholder="Card number">
+        </div>
+    </div>
+    <script>
+        function getYear() {
+          const dateInput = document.getElementById('year');
+          const year = new Date(dateInput.value).getFullYear();
+         
+        }
+      </script>
+</body>
+</html>

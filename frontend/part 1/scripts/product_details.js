@@ -1,15 +1,15 @@
-// product color list retrieval logic:
-const product = {
-    name: "IPhone 16 pro max",
-    colors: ["#0000ff", "#ffff00", "#ff00ff"],
-    images: ["../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
-      "../../assets/images/images.jpg"
-    ],
-    options:["6GBRAM-128GB","6GBRAM-128GB","6GBRAM-128GB"]
-  };
+
+const product = JSON.parse(localStorage.getItem('selectedProduct'));
+
+
+if (!product) {
+  
+  window.location.href = "index.html"; 
+}
+
   
 
-  // my stuff things here
+ 
   const mainImage = document.getElementById('main-product-image');
   const leftBtn = document.getElementById('swap-left-btn');
   const rightBtn = document.getElementById('swap-right-btn');
@@ -17,7 +17,12 @@ const product = {
   const colorButtonsContainer = document.getElementById("colorButtons");
   const optionButtonsContainer = document.getElementById("options-btns-sec");
   const currentColorDisplay = document.querySelector('.current-selected-color');
-  
+  const brand=document.getElementById('brand');
+  const Name=document.getElementById('product-name');
+  const Desc=document.getElementById('grad-text');
+  brand.innerText=product.brand;
+  Name.innerText=product.name;
+  Desc.innerText=product.desc;
   product.colors.forEach(color => {
     const button = document.createElement("button");
     button.className = "color-btn";
@@ -28,13 +33,20 @@ const product = {
     button.dataset.color = color;
     
     button.addEventListener("click", () => {
-        document.querySelectorAll(".color-btn").forEach(btn => {
-            btn.classList.remove("selected");
-        });
-        
-        button.classList.add("selected");
-        updateSelectedColorDisplay(color);
-    });
+      // Remove selection from all buttons
+      document.querySelectorAll(".color-btn").forEach(btn => {
+          btn.classList.remove("selected");
+          btn.style.border = ""; // Reset border
+          btn.style.padding = ""; // Reset padding
+      });
+      
+      // Style the clicked button
+      button.style.border = "2px solid grey";
+      button.style.margin = "8px"; 
+      button.classList.add("selected");
+      
+      updateSelectedColorDisplay(color);
+  });
     
     colorButtonsContainer.appendChild(button);
   });
@@ -43,7 +55,7 @@ const product = {
     const colorName = getColorName(color); // Implement this function if needed
     currentColorDisplay.textContent = `${colorName || color}`;
     
-    // Optional: Change text color for better visibility
+    
     currentColorDisplay.style.color = color;
 }
 
