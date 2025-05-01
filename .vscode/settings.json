@@ -4,6 +4,8 @@
         "plaintext": false,
         "markdown": false,
         "scminput": false,
-        "javascript": true
+        "javascript": true,
+        "html": false,
+        "css": true
     }
 }
