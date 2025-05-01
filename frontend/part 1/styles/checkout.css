@@ -13,7 +13,7 @@ body{
     background-color: rgba(255, 255, 255, 1);
     border-bottom: 0.4px solid rgba(179, 179, 179, 1);
     width: 100%;
-    height: 120px;
+    height: 100px;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -22,7 +22,7 @@ body{
 
 .logo img {
     padding: 0 10px;
-    height: 120px;
+   
     width: 200px;   
 }
 .component{
@@ -93,6 +93,11 @@ body{
     gap: 10px;
 
 }
+.selectcard p:hover{
+    color: rgb(200, 24, 24);
+}
+
+    
 .circle{
     
     background-color: rgba(255, 255, 255, 1);
@@ -113,6 +118,7 @@ body{
 .selectcard p{
     font-size: 20px;
     font-weight: bold;
+    cursor: pointer;
     
 }
 .card-type{
@@ -477,7 +483,7 @@ h1{
     padding: 0 10px;
     border: 0.5px solid rgb(216, 216, 216) ;
 }
-button{
+.Save-address{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -491,4 +497,109 @@ button{
     border: none;
     border-radius:8px ;
 }
+/* card payment*/
+.card-modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+.payments{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    flex-wrap: wrap;
+    border-radius: 12px;
+    width: 45%;
+    padding: 0 20px;
+}
+.close-p{
+    display: flex;
+    justify-content: space-between;
+   
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .close-modal-p {
+    
+    top: 12px;
+    right: 16px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+  }
+.number-name{
+    display: flex;
+    justify-content: space-between;
+    padding: 35px 0;
+}
+.number-name input{
+    width: 48%;
+    border-radius: 8px;
+    height: 40px;
+    border:1.5px solid rgb(216, 216, 216) ;
+    padding: 0 10px;
+}
+.info-card{
+    display: flex;
+    justify-content: space-between; 
+    padding-bottom: 35px;
+}
+.CVV{
+    width: 48%;
+    border-radius: 8px;
+    height: 40px;
+    border:1.5px solid rgb(216, 216, 216) ;
+    padding: 0 10px; 
+}
+.MM{
+    border-radius: 8px;
+    border:1.5px solid rgb(216, 216, 216) ;
+    height: 40px;
+    width: 22.5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 10px ;
+    font-weight: 400; 
+    color: rgb(147, 146, 146);
+}
+.YY{
+    border-radius: 8px;
+    border:1.5px solid rgb(216, 216, 216) ;
+    height: 40px;
+    width: 22.5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 10px ;  
+    font-weight: 400; 
+    color: rgb(147, 146, 146);
 
+}
+
+.card-saver{
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    align-self: end;
+    height: 35px;
+    width: 14%;
+    background-color:rgba(195, 28, 28, 1) ;
+    color: white;
+    margin-bottom: 20px;
+    font-size: large;
+    font-weight: bold;
+}
+.card-saver:hover{
+background-color:rgb(148, 0, 0) ;
+}

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
       brand: "Apple",
       name: "iphone 16 pro",
       desc: "Build For Apple Intelligence",
-      
+      category:"phones",
       imgSrc: "../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
       instalment: "Starting At $30/month for 24 Months",
       price: "Full Price: $1,099.00"
@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
         brand: "Samsung",
+        category:"tablets",
         name: "Samsung Galaxy S25 Ultra",
         desc: "Build For Apple Intelligence",
         imgSrc: "../../assets/images/GALAXY_S25_ULTRA_IMAGE.jpg",
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       {
         brand: "Apple",
         name: "iPhone 16 pro max",
+        category:"phones",
         desc: "Build For Apple Intelligence",
         imgSrc: "../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
         instalment: "Starting At $30/month for 24 Months",
@@ -44,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
       {
         brand: "Apple",
         name: "iPhone 16 pro max",
+        category:"tablets",
         desc: "Build For Apple Intelligence",
         imgSrc: "../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
         instalment: "Starting At $30/month for 24 Months",
@@ -57,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
       {
         brand: "Apple",
         name: "iPhone 16 pro max",
+        category:"phones",
         desc: "Build For Apple Intelligence",
         imgSrc: "../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
         instalment: "Starting At $30/month for 24 Months",
@@ -70,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
       {
         brand: "Apple",
         name: "iPhone 16 pro max",
+        category:"laptops",
         desc: "Build For Apple Intelligence",
         imgSrc: "../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
         instalment: "Starting At $30/month for 24 Months",
@@ -183,21 +188,31 @@ let selectedBrand = null;
     }
     
     function applyFilters() {
+      console.log(products,"test");
       let filtered = products;
-    
       if (selectedCategory) {
         filtered = filtered.filter(product =>
           product.category.toLowerCase() === selectedCategory.toLowerCase()
         );
       }
-    
+      console.log(filtered,"file")
       if (selectedBrand) {
         filtered = filtered.filter(product =>
           product.brand.toLowerCase() === selectedBrand.toLowerCase()
         );
       }
-    
+      
       renderProducts(filtered);
+      filtered.forEach((filters)=>{
+        const card2=document.querySelectorAll(".product-card");
+        card2.forEach((card1)=>{
+          card1.addEventListener('click', () => {
+            localStorage.setItem('selectedProduct', JSON.stringify(filters));
+            console.log(card1.innerText);
+            window.location.href = "product_details.html";
+          });
+        });
+      });
     }
     
     
@@ -222,7 +237,7 @@ function renderProducts(filteredProducts) {
 
 });
 
-  //cart stuff here: 
+ 
   document.getElementById("cart-button").onclick = function () {
     document.getElementById("mySidebar").style.width = "250px";
   };
