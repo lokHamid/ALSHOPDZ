@@ -2,13 +2,13 @@ const products=[
   {
    image:'../../assets/images/iphone16.jfif',
    brand:'Apple',
-   price:'1000$',
+   price:'100$',
    name:'IPhone 16 pro max',
   },
   {
     image:'../../assets/images/iphone16.jfif',
     brand:'Apple',
-    price:'1000$',
+    price:'300$',
     name:'IPhone 16 pro max',
    },
    {
@@ -106,12 +106,35 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
       scrrolable.appendChild(cardproduct);
      });
-
+     function calculateTotal() {
+      const prices = document.querySelectorAll('.info-device p');
+      const quantities = document.querySelectorAll('.sum');
+      const shippingfees = document.getElementById('shipping-fee');
+      const shippingValue = parseFloat(shippingfees.innerText.replace('$', ''));
+      const totalprice=document.getElementById("totalprice");
+      let total = 0;
+       let totalp=0;
+      prices.forEach((price, index) => {
+        const priceValue = parseFloat(price.innerText.replace('$', ''));
+        
+        const quantityValue = parseInt(quantities[index].innerText);
+        total += priceValue * quantityValue;
+        
+      });
+    
+      const totalPriceElement = document.getElementById('subtotal');
+      totalPriceElement.innerText = `$${total.toFixed(2)}`;
+      totalp=total+shippingValue;
+      totalprice.innerText=`$${totalp.toFixed(2)}`;
+    }
+    calculateTotal();
+    
      const dels=document.querySelectorAll('.delete');
      const products2=document.querySelectorAll('.product');
       dels.forEach((del,index)=>{
        del.addEventListener('click',()=>{
          products2[index].remove();
+          calculateTotal();
        });
       });
 
@@ -125,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if(Number(result)>=1){
         sum[index].innerText=String(Number(result)-1); 
         }
-  
+        calculateTotal();
       });
      
     });
@@ -136,17 +159,13 @@ document.addEventListener("DOMContentLoaded", () => {
       add.addEventListener("click",()=>{
         let result=sum[index].innerText;
         sum[index].innerText=String(Number(result)+1); 
-  
+       calculateTotal();
       });
     });
-    let subtotal=0;
-    let quantities=0;
-    sum.forEach((quantity)=>{
-    quantity.addEventListener(()=>{
-     quantities=Number(quantity.innerText);
-    });
     
-    });
+   
+    
+    
     select.addEventListener("change", () => {
       const selectedCode = select.value;
       const selectedCountry = countries.find(c => c.code === selectedCode);
@@ -159,4 +178,5 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+  
   
