@@ -1,87 +1,4 @@
 
-const products = [
-    {
-      brand: "Apple",
-      name: "iphone 16 pro",
-      desc: "Build For Apple Intelligence",
-      
-      imgSrc: "../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
-      instalment: "Starting At $30/month for 24 Months",
-      price: "Full Price: $1,099.00"
-      ,colors: ["#0000ff", "#ffff00", "#ff00ff"],
-      images: ["../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
-        "../../assets/images/images.jpg"
-      ],
-  options: ["6GB/128GB", "8GB/128GB"]
-    },
-    {
-        brand: "Samsung",
-        name: "Samsung Galaxy S25 Ultra",
-        desc: "Build For Apple Intelligence",
-        imgSrc: "../../assets/images/GALAXY_S25_ULTRA_IMAGE.jpg",
-        instalment: "Starting At $30/month for 24 Months",
-        price: "Full Price: $1,099.00"
-        ,colors: ["#0000ff", "#ffff00", "#ff00ff"],
-      images: ["../../assets/images/GALAXY_S25_ULTRA_IMAGE.jpg",
-        "../../assets/images/images.jpg"
-      ],
-  options: ["6GB/128GB", "8GB/128GB"]
-      },
-      {
-        brand: "Apple",
-        name: "iPhone 16 pro max",
-        desc: "Build For Apple Intelligence",
-        imgSrc: "../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
-        instalment: "Starting At $30/month for 24 Months",
-        price: "Full Price: $1,099.00"
-        ,colors: ["#0000ff", "#ffff00", "#ff00ff"],
-      images: ["../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
-        "../../assets/images/images.jpg"
-      ],
-  options: ["6GB/128GB", "8GB/128GB"]
-      },
-      {
-        brand: "Apple",
-        name: "iPhone 16 pro max",
-        desc: "Build For Apple Intelligence",
-        imgSrc: "../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
-        instalment: "Starting At $30/month for 24 Months",
-        price: "Full Price: $1,099.00"
-        ,colors: ["#0000ff", "#ffff00", "#ff00ff"],
-      images: ["../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
-        "../../assets/images/images.jpg"
-      ],
-  options: ["6GB/128GB", "8GB/128GB"]
-      },
-      {
-        brand: "Apple",
-        name: "iPhone 16 pro max",
-        desc: "Build For Apple Intelligence",
-        imgSrc: "../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
-        instalment: "Starting At $30/month for 24 Months",
-        price: "Full Price: $1,099.00"
-        ,colors: ["#0000ff", "#ffff00", "#ff00ff"],
-      images: ["../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
-        "../../assets/images/images.jpg"
-      ],
-  options: ["6GB/128GB", "8GB/128GB"]
-      },
-      {
-        brand: "Apple",
-        name: "iPhone 16 pro max",
-        desc: "Build For Apple Intelligence",
-        imgSrc: "../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
-        instalment: "Starting At $30/month for 24 Months",
-        price: "Full Price: $1,099.00"
-        ,colors: ["#0000ff", "#ffff00", "#ff00ff"],
-      images: ["../../assets/images/Apple-iPhone-16-Pro-hero-geo-240909_inline.jpg.large.jpg",
-        "../../assets/images/images.jpg"
-      ],
-  options: ["6GB/128GB", "8GB/128GB"]
-      },
-   
-  ];
-
 
 const carts= [
   {
@@ -116,7 +33,19 @@ options: ["6GB/128GB", "8GB/128GB"]
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector(".search-field").addEventListener("input", e => {
+   
+  fetch(`http://localhost/ALSHOPDZ/backend/part1/products.php`)
+      .then(res => res.json())
+      .then(data => {
+       
+      
+       const products=data;
+       console.log(products);
+       
+  
+     
+      
+  document.querySelector(".search-field").addEventListener("input", e => {
         search(e.target.value);
       });
       
@@ -133,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <label class="product-desc">${product.desc}</label>
           <hr class="card-divider">
           <p class="product-instal-price">${product.instalment}</p>
-          <p class="product-price">${product.price}</p>
+          <p class="product-price">Full price:${product.options[0].price}$</p>
         `;
       
         card.addEventListener('click', () => {
@@ -324,6 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+});
 });
 document.getElementById("cart-button").onclick = function () {
     document.getElementById("mySidebar").style.width = "250px";

@@ -23,14 +23,84 @@ if (!product) {
   brand.innerText=product.brand;
   Name.innerText=product.name;
   Desc.innerText=product.desc;
-  product.colors.forEach(color => {
+  let ind=0;
+  function initImageSwapper() {
+    dotsContainer.innerHTML = "";
+    currentImageIndex = 0; // Reset index when swapping version
+    console.log("the ind", ind);
+  
+    if (product.options[ind].images.length > 0) {
+      mainImage.src = product.options[ind].images[0];
+      mainImage.alt = product.name;
+      console.log("this one", product);
+    }
+  
+    // Create dots
+    product.options[ind].images.forEach((_, index) => {
+      const dot = document.createElement("i");
+      dot.className = "fa-solid fa-circle";
+      if (index === 0) dot.classList.add("active");
+  
+      dot.addEventListener("click", () => {
+        goToImage(index);
+      });
+  
+      dotsContainer.appendChild(dot);
+    });
+  }
+  leftBtn.addEventListener('click', () => {
+    const images = product.options[ind].images;
+    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+    goToImage(currentImageIndex);
+  });
+  
+  rightBtn.addEventListener('click', () => {
+    const images = product.options[ind].images;
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    goToImage(currentImageIndex);
+  });
+    
+  let currentImageIndex = 0;
+ 
+  
+  
+  function goToImage(index) {
+    currentImageIndex = index;
+    const images = product.options[ind].images;
+    mainImage.src = images[index];
+    document.querySelectorAll('.img-dots i').forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
+  
+  product.options.forEach((option,index) => {
+    const button = document.createElement("button");
+    button.className = "opt-btn";
+    button.textContent = option.version;
+    
+    
+    button.addEventListener("click", () => {
+      document.querySelectorAll(".opt-btn").forEach(btn => 
+        btn.classList.remove("active")
+      );
+      button.classList.add("active");
+      ind=index;
+      console.log("index",ind);
+      initImageSwapper();
+    });
+    
+    optionButtonsContainer.appendChild(button);
+  });
+
+  product.options.forEach(option => {
     const button = document.createElement("button");
     button.className = "color-btn";
-    button.style.backgroundColor = color;
-    button.setAttribute("aria-label", `Color ${color}`);
+    console.log(option.color)
+    button.style.backgroundColor = option.color;
+    button.setAttribute("aria-label", `Color ${option.color}`);
     
     // Store color value as data attribute
-    button.dataset.color = color;
+    button.dataset.color = option.color;
     
     button.addEventListener("click", () => {
       // Remove selection from all buttons
@@ -45,92 +115,35 @@ if (!product) {
       button.style.margin = "8px"; 
       button.classList.add("selected");
       
-      updateSelectedColorDisplay(color);
+      updateSelectedColorDisplay(option.color,option.color_name);
   });
     
     colorButtonsContainer.appendChild(button);
   });
-  function updateSelectedColorDisplay(color) {
+  function updateSelectedColorDisplay(color,colorName) {
     // You can customize this to show color names instead of hex values
-    const colorName = getColorName(color); // Implement this function if needed
+    
     currentColorDisplay.textContent = `${colorName || color}`;
     
     
     currentColorDisplay.style.color = color;
 }
 
-function getColorName(hex) {
-    const colorMap = {
-        '#0000ff': 'Blue',
-        '#ffff00': 'Yellow',
-        '#ff00ff': 'Magenta'
-    };
-    return colorMap[hex.toLowerCase()];
-}
 
-if (product.colors.length > 0) {
-    const firstColor = product.colors[0];
+if (product.options.length > 0) {
+    const firstColor = product.options[0].color;
     updateSelectedColorDisplay(firstColor);
     colorButtonsContainer.firstChild?.click();
 }
   
-  let currentImageIndex = 0;
   
-  function initImageSwapper() {
-    // set first img
-    if (product.images.length > 0) {
-      mainImage.src = product.images[0];
-      mainImage.alt = product.name;
-    }
-  
-    product.images.forEach((_, index) => {
-      const dot = document.createElement('i');
-      dot.className = 'fa-solid fa-circle';
-      if (index === 0) dot.classList.add('active');
-      
-      dot.addEventListener('click', () => {
-        goToImage(index);
-      });
-      
-      dotsContainer.appendChild(dot);
-    });
-  
-    leftBtn.addEventListener('click', () => {
-      goToImage((currentImageIndex - 1 + product.images.length) % product.images.length);
-    });
-  
-    rightBtn.addEventListener('click', () => {
-      goToImage((currentImageIndex + 1) % product.images.length);
-    });
-  }
-  
-  function goToImage(index) {
-    currentImageIndex = index;
-    mainImage.src = product.images[index];
-    
-    document.querySelectorAll('.img-dots i').forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
-  }
   
   initImageSwapper();
 
 
-  document.addEventListener('DOMContentLoaded', () => {
-    product.options.forEach(option => {
-      const button = document.createElement("button");
-      button.className = "opt-btn";
-      button.textContent = option
-
-      button.addEventListener("click", () => {
-        document.querySelectorAll(".opt-btn").forEach(btn => 
-          btn.classList.remove("active")
-        );
-        button.classList.add("active");
-      });
-      
-      optionButtonsContainer.appendChild(button);
-    });
+  
+    
+   
 
     //handle sidebar open:
     const sidebar = document.getElementById("sidebar");
@@ -146,7 +159,7 @@ if (product.colors.length > 0) {
     closeSidebarBtn.addEventListener("click", () => {
         sidebar.classList.remove("open");
     });
-  });
+
 
   document.getElementById("cart-button").onclick = function () {
     document.getElementById("mySidebar").style.width = "250px";
