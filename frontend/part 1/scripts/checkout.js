@@ -1,4 +1,7 @@
-const products=[
+
+const products = JSON.parse(localStorage.getItem('cart'));
+console.log("this is cart",products);
+const products2=[
   {
    image:'../../assets/images/iphone16.jfif',
    brand:'Apple',
@@ -19,6 +22,55 @@ const products=[
    },
 ];
 
+async function updateCartItemQuantity(cartItemId, newQuantity) {
+  try {
+      const response = await fetch(`http://localhost/ALSHOPDZ/backend/part1/cart.php`, {
+          method: 'PUT',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+              cart_item_id: cartItemId,
+              quantity: newQuantity
+          })
+      });
+      
+      if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      console.log('Quantity updated:', data);
+      return data;
+  } catch (error) {
+      console.error('Error updating quantity:', error);
+      return null;
+  }
+}
+async function deleteCartItem(cartItemId) {
+try {
+    const response = await fetch(`http://localhost/ALSHOPDZ/backend/part1/cart.php`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            cart_item_id: cartItemId
+        })
+    });
+    
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    console.log('Item deleted:', data);
+    return data;
+} catch (error) {
+    console.error('Error deleting item:', error);
+    return null;
+}
+}
 document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("addressModal");
     const openBtn = document.querySelector(".add2");
@@ -84,17 +136,17 @@ document.addEventListener("DOMContentLoaded", () => {
       cardproduct.innerHTML=`
       
         <div class="img">
-            <img src=${product.image} alt="iphone">
+            <img src=${product.product_image} alt="iphone">
         </div>
         <div class="info-device">
-        <h2>${product.name}</h2>
+        <h2>${product.product_name}</h2>
         <h6>${product.brand}</h6>
         <p>${product.price}</p>
         </div>
         <div class="quan">
         <div class="quantity">
          <button class="minus">-</button>
-         <p class="sum">1</p>
+         <p class="sum">${product.quantity}</p>
          <button class="add">+</button>
         </div>
         <div class="delete">
@@ -133,6 +185,8 @@ document.addEventListener("DOMContentLoaded", () => {
      const products2=document.querySelectorAll('.product');
       dels.forEach((del,index)=>{
        del.addEventListener('click',()=>{
+        console.log("the id of cart",products[index].cart_item_id)
+        deleteCartItem(productsm[index].cart_item_id);
          products2[index].remove();
           calculateTotal();
        });
@@ -148,6 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if(Number(result)>=1){
         sum[index].innerText=String(Number(result)-1); 
         }
+        updateCartItemQuantity(products[index].cart_item_id,parseInt(result)-1);
         calculateTotal();
       });
      
@@ -159,6 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
       add.addEventListener("click",()=>{
         let result=sum[index].innerText;
         sum[index].innerText=String(Number(result)+1); 
+        updateCartItemQuantity(products[index].cart_item_id,parseInt(result)-1);
        calculateTotal();
       });
     });
