@@ -445,6 +445,7 @@ h4 {
     justify-content: start;
     align-items: start;
     padding: 0;
+    
     margin-top: 15px;
     width:350px
 }
@@ -567,7 +568,36 @@ h4 {
     flex-direction: column;
     justify-content: center;
 }
+.cart-empty {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: auto;
+}
 
-/* start from cart item cards tomorrow.
-NEED TO SET CHECKOUT ITEMS AT THE BOTTOM OF THE COLUMN + USE COLUMN LAYOUT FOR THE CART DETAILS
-nchallh ani myet bl3ya drk.*/
+.empty {
+    padding-right: 25px;
+    width: 80%; 
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.text1 {
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 1.2rem;
+}
+
+.text2 {
+    margin-top: 10px;
+    font-weight: 400;
+    color: #8a8a8a;
+    font-size: 0.95rem;
+}

@@ -31,9 +31,82 @@ options: ["6GB/128GB", "8GB/128GB"]
     },
 ];
 
+async function getcart(userId = 2) {
+  try {
 
-document.addEventListener('DOMContentLoaded', () => {
-   
+      const response = await fetch(`http://localhost/ALSHOPDZ/backend/part1/cart.php/${userId}`);
+      
+      
+      if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      
+      return data;
+  } catch (error) {
+      console.error('Error fetching cart data:', error);
+      return null;
+  }
+}
+
+
+
+
+let carts3=[];
+async function updateCartItemQuantity(cartItemId, newQuantity) {
+  try {
+      const response = await fetch(`http://localhost/ALSHOPDZ/backend/part1/cart.php`, {
+          method: 'PUT',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+              cart_item_id: cartItemId,
+              quantity: newQuantity
+          })
+      });
+      
+      if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      console.log('Quantity updated:', data);
+      return data;
+  } catch (error) {
+      console.error('Error updating quantity:', error);
+      return null;
+  }
+}
+async function deleteCartItem(cartItemId) {
+try {
+    const response = await fetch(`http://localhost/ALSHOPDZ/backend/part1/cart.php`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            cart_item_id: cartItemId
+        })
+    });
+    
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    console.log('Item deleted:', data);
+    return data;
+} catch (error) {
+    console.error('Error deleting item:', error);
+    return null;
+}
+}
+
+
+document.addEventListener('DOMContentLoaded', async() => {
+  carts3= await getcart(2);
+      console.log("carts3",carts3);
   fetch(`http://localhost/ALSHOPDZ/backend/part1/products.php`)
       .then(res => res.json())
       .then(data => {
@@ -72,61 +145,93 @@ document.addEventListener('DOMContentLoaded', () => {
       
         grid.appendChild(card);
       });
-         
+        
+          
        const cartitem=document.querySelector(".carted-products-col");
        function rendercart() {
         cartitem.innerHTML = ""; 
-        carts.forEach((cart, index) => {
+        if(carts3.length===0){
+          cartitem.style.maxHeight = "none";
+          cartitem.style.overflowY = "hidden";
+          const emptycart=document.createElement("div");
+          emptycart.classList.add("cart-empty");
+          emptycart.innerHTML=`
+          <img class="empty" src="../../assets/images/4555971.png" alt="empty">
+          <p class="text1">Your cart is empty</p>
+          <p class="text2">Add items to start a new order</p>
+          `;
+          cartitem.appendChild(emptycart);
+        }else{
+          cartitem.style.maxHeight = "70vh"; 
+          cartitem.style.overflowY = "auto";
+        carts3.forEach((cart, index) => {
           const cartitems = document.createElement("div");
           cartitems.classList.add("cart-item");
           cartitems.innerHTML = `
-            <img src=${cart.images[0]} alt="${cart.name}" class="cart-image">
+             <img src="${cart.product_image}" alt="${cart.product_name}" class="cart-image">
             <div class="cart-item-details">
               <div class="name-delete">
-                <label class="cart-item-name">${cart.name}</label>
+                <label class="cart-item-name">${cart.product_name}</label>
                 <i class="fa-solid fa-trash" data-index="${index}"></i>
               </div>
-              <label class="cart-item-quant">${cart.price} <i class="fa-solid fa-xmark"></i> <span class="quan-cart">1</span></label>
+              <label class="cart-item-quant">${cart.price}$<i class="fa-solid fa-xmark"></i> <span class="quan-cart">1</span></label>
               <div class="quantity">
                 <button class="minus" data-index="${index}">-</button>
-                <p class="sum">1</p>
+                <p class="sum">${cart.quantity}</p>
                 <button class="add" data-index="${index}">+</button>
               </div>
-              <label class="cart-item-total">${cart.price}</label>
-            </div>
-          `;
+              <label class="cart-item-total">${cart.price}$</label>
+            </div>          `;
           cartitem.appendChild(cartitems);
         });
+      }
       
         
         document.querySelectorAll('.fa-trash').forEach(del => {
-          del.addEventListener('click', (e) => {
-            const i = parseInt(e.target.getAttribute("data-index"));
-            carts.splice(i, 1);
-            rendercart(); 
-            calculateTotal();
+          del.addEventListener('click', async (e) => {
+              const i = parseInt(e.target.getAttribute("data-index"));
+              const cartItemId = carts3[i].cart_item_id;
+              
+              
+              e.target.classList.add('fa-spinner', 'fa-spin');
+              e.target.classList.remove('fa-trash');
+              
+              try {
+                  await deleteCartItem(cartItemId);
+                  carts3 = await getcart(2);
+                  rendercart();
+                  calculateTotal();
+              } catch (error) {
+                  console.error('Delete failed:', error);
+                 
+                  e.target.classList.remove('fa-spinner', 'fa-spin');
+                  e.target.classList.add('fa-trash');
+                  alert("Failed to delete item. Please try again.");
+              }
           });
-        });
+      });
       
        
-        document.querySelectorAll('.add').forEach(addBtn => {
-          addBtn.addEventListener('click', (e) => {
+        document.querySelectorAll('.add').forEach((addBtn,index) => {
+          addBtn.addEventListener('click',async (e) => {
             const i = parseInt(e.target.getAttribute("data-index"));
             const quantityElem = document.querySelectorAll('.sum')[i];
             let qty = parseInt(quantityElem.innerText);
             quantityElem.innerText = ++qty;
+            await updateCartItemQuantity(carts3[index].cart_item_id, qty);
             updateprices(qty, i);
             calculateTotal();
           });
         });
       
-        document.querySelectorAll('.minus').forEach(minusBtn => {
-          minusBtn.addEventListener('click', (e) => {
+        document.querySelectorAll('.minus').forEach((minusBtn,index) => {
+          minusBtn.addEventListener('click', async (e) => {
             const i = parseInt(e.target.getAttribute("data-index"));
             const quantityElem = document.querySelectorAll('.sum')[i];
             let qty = parseInt(quantityElem.innerText);
             if (qty > 1) {
               quantityElem.innerText = --qty;
+              await updateCartItemQuantity(carts3[index].cart_item_id, qty);
               updateprices(qty, i);
               calculateTotal();
             }

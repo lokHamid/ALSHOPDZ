@@ -255,7 +255,21 @@ async function deleteCartItem(cartItemId) {
         totalprice1.innerText = `${total.toFixed(2)}$`;
       }
       function rendercart() {
-        cartitem.innerHTML = "";  
+        cartitem.innerHTML = ""; 
+        if(carts3.length===0){
+          cartitem.style.maxHeight = "none";
+          cartitem.style.overflowY = "hidden";
+          const emptycart=document.createElement("div");
+          emptycart.classList.add("cart-empty");
+          emptycart.innerHTML=`
+          <img class="empty" src="../../assets/images/4555971.png" alt="empty">
+          <p class="text1">Your cart is empty</p>
+          <p class="text2">Add items to start a new order</p>
+          `;
+          cartitem.appendChild(emptycart);
+        }else{ 
+          cartitem.style.maxHeight = "70vh"; 
+          cartitem.style.overflowY = "auto";
         carts3.forEach((cart, index) => {
           const cartitems = document.createElement("div");
           cartitems.classList.add("cart-item");
@@ -278,6 +292,7 @@ async function deleteCartItem(cartItemId) {
           cartitem.appendChild(cartitems);
           updateprices(cart.quantity,index);
         });
+      }
        
         
         document.querySelectorAll('.fa-trash').forEach(del => {

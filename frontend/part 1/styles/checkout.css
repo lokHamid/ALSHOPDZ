@@ -43,7 +43,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100px;
+    height: auto;
     
 }
 .adress .addd{
@@ -51,6 +51,15 @@ body{
     font-size:24px;
     font-weight: bold;
     font-family: 'Inter', sans-serif;
+}
+.address-text{
+    padding: 10px 20px;
+}
+.address-text p{
+    font-weight: bold;
+}
+.address-text span:nth-of-type(n+3):nth-of-type(-n+7){
+    font-weight: bold;
 }
 .adress .add2{
     border: none;
