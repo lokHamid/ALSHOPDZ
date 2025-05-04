@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 header("Content-Type: application/json");
 
-require_once 'Database.php';
+require_once __DIR__ . '/../Database.php';
 $db = new Database();
 $conn = $db->connect();
 

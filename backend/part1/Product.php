@@ -1,5 +1,5 @@
 <?php
-require_once 'Database.php';
+require_once __DIR__ . '/../Database.php';
 
 class Product {
     private $conn;
@@ -31,7 +31,6 @@ class Product {
             $productId = $row['product_id'];
             $optionId = $row['option_id'];
     
-            // Initialize product
             if (!isset($products[$productId])) {
                 $products[$productId] = [
                     'id' => $productId,
@@ -46,7 +45,6 @@ class Product {
                 ];
             }
     
-            // Initialize option if not already added
             if ($optionId && !isset($products[$productId]['options'][$optionId])) {
                 $products[$productId]['options'][$optionId] = [
                     'id' => $optionId,
@@ -59,13 +57,11 @@ class Product {
                 ];
             }
     
-            // Add image if exists
             if ($optionId && !empty($row['option_image'])) {
                 $products[$productId]['options'][$optionId]['images'][] = $row['option_image'];
             }
         }
     
-        // Convert associative array of options to indexed arrays
         foreach ($products as &$product) {
             $product['options'] = array_values($product['options']);
         }
