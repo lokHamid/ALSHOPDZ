@@ -222,6 +222,7 @@ h3{
     align-items: center;
     font-size: 0.95em;
     color: #2d3748;
+    position: relative;
 }
   
 .grid-row:nth-child(even) .grid-cell {
@@ -247,6 +248,13 @@ h3{
     font-weight: 600;
     text-transform: capitalize;
     display: inline-block;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s ease;
+}
+
+.status-badge:hover {
+    opacity: 0.8;
 }
   
 .status-badge.active {
@@ -266,5 +274,50 @@ h3{
   
 .status-badge.cancelled {
     background-color: #fed7d7;
+    color: #c53030;
+}
+
+.status-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 16px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    width: 150px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.dropdown-above {
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-option {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.dropdown-option:hover {
+    background-color: #f5f7fa;
+}
+
+.dropdown-option.pending {
+    color: #b7791f;
+}
+
+.dropdown-option.active {
+    color: #3182ce;
+}
+
+.dropdown-option.completed {
+    color: #2f855a;
+}
+
+.dropdown-option.cancelled {
     color: #c53030;
 }
