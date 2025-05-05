@@ -95,7 +95,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                     p.name AS product_name,
                     p.image AS product_image,
                     p.brand,
-                    o.price
+                    o.price,
+                    o.id
+                    
                 FROM cart_items ci
                 JOIN product p ON ci.product_id = p.id
                 JOIN options o ON ci.option_id = o.id

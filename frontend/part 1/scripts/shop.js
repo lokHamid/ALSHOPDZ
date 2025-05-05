@@ -1,5 +1,42 @@
+
+function getCookie(name) {
+  const cookies = document.cookie.split(';');
+  for (const cookie of cookies) {
+      const [key, value] = cookie.trim().split('=');
+      if (key === name) {
+          return decodeURIComponent(value);
+      }
+  }
+  return null;
+}
+
 document.addEventListener('DOMContentLoaded',async () => {
+  let carts3=[];
+  window.addEventListener("pageshow", function (event) {
+    if (performance.getEntriesByType("navigation")[0].type === "back_forward") {
+      location.reload();
+    }
+  });
   
+ const userCookie = getCookie('user');
+let userid="f";
+if (userCookie) {
+    try {
+        const user = JSON.parse(userCookie);
+        console.log("User found:", user);
+              userid=user.id;
+      
+      
+    } catch (e) {
+        console.error("Error parsing user cookie:", e);
+    }
+} else {
+    console.log("No user cookie found. Redirecting to login...");
+   
+}
+if(userid!=="f"){
+    carts3= await getcart(userid);
+}
   async function getproduct() {
     const res = await fetch(`http://localhost/ALSHOPDZ/backend/part1/products.php`);
     const data = await res.json();
@@ -9,7 +46,7 @@ document.addEventListener('DOMContentLoaded',async () => {
   let products= await getproduct();
   console.log("this",products);
   
-  async function getcart(userId = 2) {
+  async function getcart(userId) {
     try {
   
         const response = await fetch(`http://localhost/ALSHOPDZ/backend/part1/cart.php/${userId}`);
@@ -30,7 +67,7 @@ document.addEventListener('DOMContentLoaded',async () => {
 // Usage
 
   
-  let carts3=[];
+
   async function updateCartItemQuantity(cartItemId, newQuantity) {
     try {
         const response = await fetch(`http://localhost/ALSHOPDZ/backend/part1/cart.php`, {
@@ -81,7 +118,7 @@ async function deleteCartItem(cartItemId) {
   }
 }
    
-      carts3= await getcart(2);
+      
      console.log("carts",carts3);
       const cartitem = document.querySelector(".carted-products-col");
       function calculateTotal() {
@@ -152,7 +189,7 @@ async function deleteCartItem(cartItemId) {
               
               try {
                   await deleteCartItem(cartItemId);
-                  carts3 = await getcart(2);
+                  carts3 = await getcart(userid);
                   rendercart();
                   calculateTotal();
               } catch (error) {
@@ -301,7 +338,10 @@ let selectedBrand = null;
 
     // Open sidebar
     openSidebarBtn.addEventListener("click", () => {
-        sidebar.classList.add("open");
+      if(userid==="f"){
+        window.location.href="login.html";
+      }  
+      sidebar.classList.add("open");
     });
 
     // Close sidebar

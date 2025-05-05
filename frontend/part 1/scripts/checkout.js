@@ -2,7 +2,7 @@
 
 
 
-async function getcart(userId = 2) {
+async function getcart(userId) {
   try {
 
       const response = await fetch(`http://localhost/ALSHOPDZ/backend/part1/cart.php/${userId}`);
@@ -89,7 +89,7 @@ try {
     return null;
 }
 }
-function getaddress() {
+function getaddress(userid) {
   const country = document.getElementById("country-select").value;
   const name = document.querySelector(".name").value;
   const number = document.querySelector(".phone-number").value;
@@ -99,7 +99,8 @@ function getaddress() {
   const city = document.querySelector(".Residence").value;
   const zip = document.querySelector(".Postal").value;
 
-  const user_id = 2; // Replace this with actual logged-in user's ID
+  const user_id = userid; 
+  console.log("new user",userid);
 
   const addressData = {
       user_id: user_id,
@@ -130,10 +131,10 @@ function getaddress() {
   })
   .catch(error => {
       console.error("Network error:", error);
-      alert("❌Network error");
+      alert("Network error");
   });
 }
-function updateAddress() {
+function updateAddress(userid) {
   const country = document.getElementById("country-select").value;
   const name = document.querySelector(".name").value;
   const number = document.querySelector(".phone-number").value;
@@ -143,7 +144,7 @@ function updateAddress() {
   const city = document.querySelector(".Residence").value;
   const zip = document.querySelector(".Postal").value;
 
-  const user_id = 2; 
+  const user_id = userid; 
 
   const addressData = {
     user_id,
@@ -171,7 +172,7 @@ function updateAddress() {
   .then(data => {
     if (data.message) {
       alert("Address saved successfully");
-      return addressData; // ✅ Return address data here
+      return addressData; 
     } else {
       alert(" Error: " + (data.error || "Unknown error"));
       return null;
@@ -183,21 +184,34 @@ function updateAddress() {
     return null;
   });
 }
+function getCookie(name) {
+  const cookies = document.cookie.split(';');
+  for (const cookie of cookies) {
+      const [key, value] = cookie.trim().split('=');
+      if (key === name) {
+          return decodeURIComponent(value);
+      }
+  }
+  return null;
+}
 
 async function fetchAddress(userId) {
   try {
     const res = await fetch(`http://localhost/ALSHOPDZ/backend/part1/address.php?user_id=${userId}`);
     const data = await res.json();
-    
+
     if (data.message === "No address found") {
-        alert("No address saved.");
+      return null; // <== return null explicitly
     } else if (data.error) {
-        alert("Error: " + data.error);
+      alert("Error: " + data.error);
+      return null;
     } else {
-        console.log("User address:", data);
-        return data;      }
+      console.log("User address:", data);
+      return data;
+    }
   } catch (error) {
     console.error("Fetch error:", error);
+    return null;
   }
 }
 
@@ -209,29 +223,101 @@ function getcard(){
   const CVV=document.querySelector(".CVV");
 }
 
-function addaddress(addres){
-  const container=document.querySelector(".address-text");
-  container.innerHTML="";
-  container.innerHTML=`
-  <span>${addres.full_name},</span>
-  <span>${addres.phone}</span>
-  <p> ${addres.street}</p>
-  <p>${addres.state} </p>
-  <span>${addres.apt},</span>
-  <span>${addres.city},</span>
-  <span>${addres.country},</span>
-  <span>${addres.zip},</span>
-  `
- 
+function addaddress(address) {
+  if (address) {
+    const container = document.querySelector(".address-text");
+    if (!container) {
+     
+      return;
+    }
+
+    container.innerHTML = `
+      <span>${address.full_name},</span>
+      <span>${address.phone}</span>
+      <p>${address.street}</p>
+      <p>${address.state}</p>
+      <span>${address.apt},</span>
+      <span>${address.city},</span>
+      <span>${address.country},</span>
+      <span>${address.zip}</span>
+    `;
+  }
 }
+async function placeOrder(userId, optionId, quantity, price) {
+  try {
+    const response = await fetch('http://localhost/ALSHOPDZ/backend/part1/Orders.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        user_id: userId,
+        option_id: optionId,
+        quantity: quantity,
+        price: price
+      })
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      console.log(' Order success:', data.message);
+      alert('Order placed!');
+    } else {
+      console.error(' Order failed:', data.error);
+      alert('Order failed: ' + data.error);
+    }
+  } catch (error) {
+    console.error(' Network error:', error);
+    alert('Network error');
+  }
+}
+
 document.addEventListener("DOMContentLoaded", async() => {
-  let addres=await fetchAddress(2);
+ let userid="f";
   
-   if(addres!==null){
-   addaddress(addres);
-   console.log("this address",addres);
-   }
-  const products = await getcart(2);
+  window.addEventListener("pageshow", function (event) {
+    if (performance.getEntriesByType("navigation")[0].type === "back_forward") {
+      location.reload();
+    }
+  });
+  
+ const userCookie = getCookie('user');
+
+if (userCookie) {
+    try {
+        const user = JSON.parse(userCookie);
+        console.log("User found:", user);
+              userid=user.id;
+      
+      
+    } catch (e) {
+        console.error("Error parsing user cookie:", e);
+    }
+} else {
+    console.log("No user cookie found. Redirecting to login...");
+   
+}
+if(userid==="f"){
+  window.location.href="login.html";
+}  
+let products=[];
+if(userid!=="f"){
+   products = await getcart(userid);
+}
+
+
+  let addres=await fetchAddress(userid);
+  console.log("this userid",addres);
+  
+  if (addres && typeof addres === "object") {
+    console.log("This address:", addres);
+    addaddress(addres); 
+  } else {
+    
+  }
+  
+  
     const modal = document.getElementById("addressModal");
     const openBtn = document.querySelector(".add2");
     const closeBtn = document.querySelector(".close-modal");
@@ -240,6 +326,15 @@ document.addEventListener("DOMContentLoaded", async() => {
     const addpaymentbutton=document.querySelector('.selectcard');
     const cardmodal=document.querySelector('.card-modal');
     const cardsaver=document.querySelector('.card-saver');
+    const palceorder=document.getElementById("place-order");
+    palceorder.addEventListener("click",()=>{
+     products.forEach(async(product,index)=>{
+      console.log("the product",product);
+      await placeOrder(userid,product.id,product.quantity,product.price*product.quantity);
+      await deleteCartItem(product.cart_item_id);
+      products2[index].remove();
+     });
+    });
     addpaymentbutton.addEventListener('click',()=>{
      cardmodal.style.display="flex";
     });
@@ -261,11 +356,13 @@ document.addEventListener("DOMContentLoaded", async() => {
   
     saveBtn.addEventListener("click", async() => {
       if(addres!==null){
-        addres=await updateAddress();
-        console.log("new address",addres)
+        addres=await updateAddress(userid);
+        console.log("this one");
           addaddress(addres);
       }else{
-      getaddress();
+        console.log("new user d",userid);
+      getaddress(userid);
+      fetchAddress(userid);
       }
       modal.style.display = "none";
     });
@@ -381,7 +478,7 @@ document.addEventListener("DOMContentLoaded", async() => {
       add.addEventListener("click",()=>{
         let result=sum[index].innerText;
         sum[index].innerText=String(Number(result)+1); 
-        updateCartItemQuantity(products[index].cart_item_id,parseInt(result)-1);
+        updateCartItemQuantity(products[index].cart_item_id,parseInt(result)+1);
        calculateTotal();
       });
     });
