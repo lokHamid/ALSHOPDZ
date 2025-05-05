@@ -92,6 +92,13 @@ class User {
         return $stmt->execute([$id]);
     }
 
+    public function getFullnameById($id){
+        $sql = "SELECT username FROM {$this->table} WHERE id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$id]);
+        $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function login($email, $password) {
         $sql = "SELECT * FROM {$this->table} WHERE email = ?";
         $stmt = $this->conn->prepare($sql);
