@@ -20,6 +20,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const tableContainer = document.querySelector(".grid-table");
     const users = await getAllUsers();
 
+    renderUsers(users,tableContainer);
+});
+
+function renderUsers(users,tableContainer){
     users.forEach(user => {
         const row = document.createElement('div');
         row.classList.add('grid-row');
@@ -104,6 +108,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const delBtn = document.createElement('button');
         delBtn.classList.add('delete-product-btn');
+        delBtn.addEventListener('click',() => {
+            deleteUser(user['id']);
+        });
         delBtn.appendChild(delIcon);
 
         const manageBtnsSection = document.createElement('div');
@@ -114,7 +121,23 @@ document.addEventListener('DOMContentLoaded', async () => {
         row.appendChild(manageBtnsSection);
         tableContainer.appendChild(row);
     });
-});
+}
+
+async function deleteUser(userId) {
+    try {
+        const response = await fetch(`http://localhost/ALSHOPDZ/backend/part2/users.php?id=${userId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        if (!response.ok) throw new Error(`HTTP status ${response.status}`);
+        alert("User deleted successfully");
+        location.reload();
+    } catch (error) {
+        console.error("ERROR OCCURRED:", error);
+    }
+}
 
 function filterListItems(statusToFilter) {
     const rows = document.querySelectorAll('.grid-row');
