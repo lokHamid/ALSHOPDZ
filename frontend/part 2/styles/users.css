@@ -294,9 +294,9 @@ h3{
     color: rgba(127, 210, 99, 1);
 }
   
-.status-badge.completed {
+.status-badge.inactive {
     background-color: #ebf8f2;
-    color: #2f855a;
+    color: #f44040;
 }
  .status-badge.admin{
     background-color: rgba(217, 243, 255, 1);

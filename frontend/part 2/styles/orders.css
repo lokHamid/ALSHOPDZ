@@ -186,7 +186,7 @@ h3{
   
 .grid-table {
     display: grid;
-    grid-template-columns: repeat(7,1fr);
+    grid-template-columns: repeat(8,1fr);
     width: 100%;
     border: 1px solid #e0e0e0;
     border-radius: 6px;
@@ -272,7 +272,7 @@ h3{
     color: #b7791f;
 }
   
-.status-badge.cancelled {
+.status-badge.canceled {
     background-color: #fed7d7;
     color: #c53030;
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Admin - Orders</title>
     <link rel="stylesheet" href="../styles/orders.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -23,10 +23,10 @@
         <!-- NAVIGATION BAR -->
     
         <div class="nav-bar">
-            <div class="tab active">Dashboard</div>
-            <div class="tab">Products</div>
-            <div class="tab">Orders</div>
-            <div class="tab">Users</div>
+            <div class="tab" onclick="window.location.href='dashboard.html'">Dashboard</div>
+            <div class="tab" onclick="window.location.href='products.html'">Products</div>
+            <div class="tab active" onclick="window.location.href='orders.html'">Orders</div>
+            <div class="tab" onclick="window.location.href='users.html'">Users</div>
         </div>
         <hr class="divider">
     </div>
@@ -35,9 +35,8 @@
         <div class="selection">
             <button class="filter-btn active">All Orders</button>
             <button class="filter-btn">Pending</button>
-            <button class="filter-btn">Delivered</button>
-            <button class="filter-btn">Shipped</button>
             <button class="filter-btn">Cancelled</button>
+            <button class="filter-btn">Completed</button>
         </div>
 
         <hr class="divider">
@@ -54,35 +53,8 @@
                 <div class="grid-cell">Order Date</div>
                 <div class="grid-cell">Status</div>
                 <div class="grid-cell">Buyer</div>
+                <div class="grid-cell">Quantity</div>
                 <div class="grid-cell">Total</div>
-            </div>
-            
-            <div class="grid-row">
-                <div class="grid-cell">#88777878</div>
-                <div class="grid-cell"><img src="../../assets/images/iphone16.jfif" alt="iPhone 16"></div>
-                <div class="grid-cell">iPhone 16 Pro Max 256GB (Space Black)</div>
-                <div class="grid-cell">25 Mar 2025</div>
-                <div class="grid-cell"><span class="status-badge completed">Completed</span></div>
-                <div class="grid-cell">John D.</div>
-                <div class="grid-cell">$1,199.00</div>
-            </div>
-            <div class="grid-row">
-                <div class="grid-cell">#88777879</div>
-                <div class="grid-cell"><img src="../../assets/images/iphone16.jfif" alt="iPhone 16"></div>
-                <div class="grid-cell">iPhone 16 Pro Max 256GB (Space Black)</div>
-                <div class="grid-cell">25 Mar 2025</div>
-                <div class="grid-cell"><span class="status-badge pending">Pending</span></div>
-                <div class="grid-cell">John D.</div>
-                <div class="grid-cell">$1,199.00</div>
-            </div>
-            <div class="grid-row">
-                <div class="grid-cell">#88777880</div>
-                <div class="grid-cell"><img src="../../assets/images/iphone16.jfif" alt="iPhone 16"></div>
-                <div class="grid-cell">iPhone 16 Pro Max 256GB (Space Black)</div>
-                <div class="grid-cell">25 Mar 2025</div>
-                <div class="grid-cell"><span class="status-badge completed">Completed</span></div>
-                <div class="grid-cell">John D.</div>
-                <div class="grid-cell">$1,199.00</div>
             </div>
             
         </div>
