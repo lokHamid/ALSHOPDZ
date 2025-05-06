@@ -145,9 +145,7 @@ document.addEventListener('DOMContentLoaded', async() => {
       .then(data => {
        
       
-       const products=data;
-       console.log(products);
-       
+       const products=data;       
   
      
       

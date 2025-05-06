@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../styles/product_details.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>ALSHOPDZ</title>
+</head>
+<body>
+    <!-- side bar code (initially hidden)-->
+    <div id="sidebar" class="cart-sidebar">
+
+        <div class="top-sidebar-section">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <button class="close-btn" id="closeSidebar">&times;</button>
+            </div>
+
+            <div class="carted-products-col">
+                
+            </div>
+        </div>
+
+        <div class="bottom-sidebar-section">
+            <div id="cart-total">
+                <p>Total</p>
+                <p class="price">$3,297.00</p>
+            </div>
+            <button class="checkout-btn" onclick="smoothNavigate('checkout.html')">
+                Checkout <i class="fa-solid fa-arrow-right"></i>
+              </button>
+              
+        </div>
+    </div>
+    <!--main stuff goes under:-->
+    <!--BUT i have something which is : dividers-->
+
+    <div class="header-content">
+        <img src="../../../icon-nobg.png" alt="ALSHOPDZ" class="icon">
+        <div class="search-container">
+            <input type="text" class="search-field" placeholder="Search The Market">
+        </div>
+        <div class="header-buttons">
+            <button class="sign-in"><i class="fa-regular fa-user"></i>Sign in</button>
+            <button id="openSidebar" class="cart-button"><i class="fa fa-cart-shopping"></i>Cart</button>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="product-dtls">
+        <div class="product-img-section">
+            <div class="product-head">
+                <h4 id="brand">Apple</h4>
+                <h4 id="product-name">iPhone 16 pro max</h4>
+                <h4 id="grad-text">Build For Apple Intelligence</h4>
+            </div>
+    
+            <div class="image-swapper">
+                <i class="fa-solid fa-chevron-left" id="swap-left-btn"></i>
+                
+                <div class="img-holder">    
+                  <img id="main-product-image" src="" alt="Product Image">
+                  <div class="img-dots" id="image-dots"></div>
+                </div>
+            
+                <i class="fa-solid fa-chevron-right" id="swap-right-btn"></i>
+              </div>
+        </div>
+    
+        <div class="product-details-section">
+            <div class="color-selection">
+                <h2>Customize your device</h2>
+                <div class="current-selection">
+                    <span>Selected color: </span>
+                    <strong class="current-selected-color">None</strong>
+                </div>
+                <div class="color-options" id="colorButtons"></div>
+            </div>
+    
+            <hr class="divider">
+    
+            <div class="product-specs-section">
+                <h3>Phone Options</h3>
+                <div class="options-btns-sec" id="options-btns-sec"></div>
+    
+                <div class="spec-desc">
+                    $25.00 $0.00/month for 24 months with promotion
+                    Due today: $0.00 + tax & other charges
+                    
+                    <p class="price">Full price: $599.99 + tax</p>
+                    
+                    <p class="quant-parag">In stock, estimated ship date: April 14 - April 17 or get it faster by selecting Store Pickup on available items at checkout.</p>
+                </div>
+            </div>
+    
+            <hr class="divider">
+    
+            <button class="cart-add-btn"><i class="fa-solid fa-cart-shopping"></i>ADD TO CART</button>
+        </div>
+    </div>
+
+    <script src="../scripts/product_details.js"></script>
+</body>
+</html>

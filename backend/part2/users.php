@@ -62,29 +62,23 @@ class User {
     }
 
     public function update($id, $data) {
-        $sql = "UPDATE {$this->table} 
-                SET 
-                    username = :username,
-                    email = :email,
-                    status = :status,
-                    role = :role
-                WHERE id = :id";
-        
+        $fields = [];
+        $params = [':id' => $id];
+    
+        foreach ($data as $key => $value) {
+            $fields[] = "$key = :$key";
+            $params[":$key"] = htmlspecialchars(strip_tags($value));
+        }
+    
+        if (empty($fields)) {
+            return false;
+        }
+    
+        $sql = "UPDATE {$this->table} SET " . implode(', ', $fields) . " WHERE id = :id";
         $stmt = $this->conn->prepare($sql);
-        
-        $username = htmlspecialchars(strip_tags($data['username']));
-        $email = filter_var($data['email'], FILTER_SANITIZE_EMAIL);
-        $status = htmlspecialchars(strip_tags($data['status']));
-        $role = htmlspecialchars(strip_tags($data['role']));
-
-        return $stmt->execute([
-            ':id' => $id,
-            ':username' => $username,
-            ':email' => $email,
-            ':status' => $status,
-            ':role' => $role
-        ]);
+        return $stmt->execute($params);
     }
+    
 
     public function delete($id) {
         $sql = "DELETE FROM {$this->table} WHERE id = ?";
