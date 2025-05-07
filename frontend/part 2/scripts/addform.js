@@ -25,21 +25,16 @@ function setupColorsAndBarriers() {
   
   
   document.addEventListener("DOMContentLoaded", () => {
-    const categoryButtons = document.querySelectorAll(".choice");
 
-categoryButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    
-    categoryButtons.forEach(btn => {
-      btn.style.backgroundColor = "";
-      btn.style.color = "";
+    const categoryBtns = document.querySelectorAll('.choice');
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            categoryBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const status = btn.dataset.status;
+            filterListItems(status);
+        });
     });
-
-   
-    button.style.backgroundColor = "black";
-    button.style.color = "white";
-  });
-});
 
     
   
@@ -98,3 +93,10 @@ versionOptions.forEach(option => {
   });
   
   
+  function createProduct(){
+    const prodId = document.querySelector('.ID-input').value;
+    const prodName = document.querySelector('.Name-input').value;
+    const prodDesc = document.querySelector('.Desc-input').value;
+
+
+  }

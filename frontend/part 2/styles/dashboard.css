@@ -190,10 +190,6 @@ h4 {
     background-color: #e0e0e0;
     color: black;
 }
-.category-btn.active {
-    color: white;
-    background-color: black;
-}
 
 .brand-btn{
     margin: 20px 5px;
@@ -215,10 +211,7 @@ h4 {
     background-color: #e0e0e0;
     color: black;
 }
-.brand-btn.active {
-    color: white;
-    background-color: black;
-}
+
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
