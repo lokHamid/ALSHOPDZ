@@ -114,6 +114,8 @@ function getCookie(name) {
 }
 
 document.addEventListener('DOMContentLoaded', async() => {
+ 
+
   window.addEventListener("pageshow", function (event) {
     if (performance.getEntriesByType("navigation")[0].type === "back_forward") {
       location.reload();
@@ -136,9 +138,23 @@ document.addEventListener('DOMContentLoaded', async() => {
         console.log("No user cookie found. Redirecting to login...");
        
     }
+    const signin=document.querySelector(".sign-in");
     if(userid!=="f"){
         carts3= await getcart(userid);
+        signin.innerHTML=`<img class="lad" src="../../../icon-nobg.png"> `
+        signin.style.width="50px";
+        signin.style.height="50px";
+        signin.style.border="0.5px solid gray"
+        signin.style.backgroundColor = "red";
+
+        signin.style.borderRadius = "50%";
+
+
+    }else{
+
     }
+    
+
       console.log("carts3",carts3);
   fetch(`http://localhost/ALSHOPDZ/backend/part1/products.php`)
       .then(res => res.json())

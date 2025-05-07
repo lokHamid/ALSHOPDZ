@@ -23,6 +23,78 @@ function setupColorsAndBarriers() {
     });
   }
   
-  // Run automatically if DOM is ready (for standalone use)
-  document.addEventListener('DOMContentLoaded', setupColorsAndBarriers);
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    const categoryButtons = document.querySelectorAll(".choice");
+
+categoryButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    
+    categoryButtons.forEach(btn => {
+      btn.style.backgroundColor = "";
+      btn.style.color = "";
+    });
+
+   
+    button.style.backgroundColor = "black";
+    button.style.color = "white";
+  });
+});
+
+    
+  
+  const brandButtons = document.querySelectorAll(".bchoice");
+  const versionOptions = document.querySelectorAll(".ram-rom");
+
+versionOptions.forEach(option => {
+  option.addEventListener("click", () => {
+    versionOptions.forEach(v => {
+      v.style.backgroundColor = "";
+      v.style.color = "";
+    });
+
+    option.style.backgroundColor = "black";
+    option.style.color = "white";
+  });
+});
+  
+  brandButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      brandButtons.forEach(btn => {
+        btn.style.backgroundColor = "";
+        btn.style.color = "";
+      });
+      button.style.backgroundColor = "black";
+      button.style.color = "white";
+    });
+  });
+    const addColorBtn = document.querySelector(".add-color");
+  
+   
+    const colorPicker = document.createElement("input");
+    colorPicker.type = "color";
+    colorPicker.style.position = "absolute";
+    colorPicker.style.opacity = "0";
+    colorPicker.style.width = "1px";
+    colorPicker.style.height = "1px";
+    colorPicker.style.border = "none";
+    colorPicker.style.padding = "0";
+    colorPicker.style.zIndex = "9999";
+    document.body.appendChild(colorPicker);
+  
+    addColorBtn.addEventListener("click", () => {
+      // Position it right beside the button
+      const rect = addColorBtn.getBoundingClientRect();
+      colorPicker.style.left = `${rect.right + window.scrollX}px`;
+      colorPicker.style.top = `${rect.top + window.scrollY}px`;
+  
+      colorPicker.click();
+    });
+  
+    colorPicker.addEventListener("input", (e) => {
+      const selectedColor = e.target.value;
+      console.log("Selected color:", selectedColor);
+    });
+  });
+  
   

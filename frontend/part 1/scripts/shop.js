@@ -395,13 +395,13 @@ function renderProducts(filteredProducts) {
     const card = document.createElement("div");
     card.classList.add("product-card");
     card.innerHTML = `
-      <img src="${product.imgSrc}" class="product-image" alt="${product.name}">
-      <p class="product-brand">${product.brand}</p>
-      <label class="product-name">${product.name}</label>
-      <label class="product-desc">${product.desc}</label>
-      <hr class="card-divider">
-      <p class="product-instal-price">${product.instalment}</p>
-      <p class="product-price">${product.price}</p>
+      <img src="${product.imgSrc}" alt="${product.name}" class="product-image">
+          <p class="product-brand">${product.brand}</p>
+          <label class="product-name">${product.name}</label>
+          <label class="product-desc">${product.desc}</label>
+          <hr class="card-divider">
+          <p class="product-instal-price">${product.instalment}</p>
+          <p class="product-price">Full price:${product.options[0].price}$</p>
     `;
     grid.appendChild(card);
   });

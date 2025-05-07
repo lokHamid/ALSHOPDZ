@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const roleBade = document.createElement('span');
         roleBade.classList.add('status-badge');
         roleBade.classList.add(user['role']);
-        roleBade.textContent = user['status'];
+        roleBade.textContent = user['role'];
 
         role.appendChild(roleBade);
 
@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         row.appendChild(dateCreated);
         row.appendChild(status);
         row.appendChild(role);
+       
 
         tableContainer.appendChild(row);
     })
