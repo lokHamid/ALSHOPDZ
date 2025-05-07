@@ -6,6 +6,13 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(204);
+    exit();
+}
 
 require_once __DIR__ . '/../Database.php';
 
@@ -67,6 +74,49 @@ switch($method) {
             echo json_encode($orders_arr);
         }
         break;
+    case 'POST':
+        $data = json_decode(file_get_contents("php://input"));
+            $order->option_id = $data->option_id;
+            $order->user_id = $data->user_id;
+            $order->quantity = $data->quantity;
+            $order->price = $data->price;
+            $order->statu = $data->statu;
+    
+            if ($order->create()) {
+                http_response_code(201);
+                echo json_encode(['message' => 'Order created']);
+            } else {
+                http_response_code(500);
+                echo json_encode(['message' => 'Failed to create order']);
+            }
+        break;
+    case 'PUT':
+            $data = json_decode(file_get_contents("php://input"));
+            $order->id = $_GET['id'];
+            $order->option_id = $data->option_id;
+            $order->quantity = $data->quantity;
+            $order->price = $data->price;
+            $order->statu = $data->statu;
+    
+            if ($order->update()) {
+                http_response_code(200);
+                echo json_encode(['message' => 'Order updated']);
+            } else {
+                http_response_code(500);
+                echo json_encode(['message' => 'Failed to update order']);
+            }
+        break;
+    
+    case 'DELETE':
+            $order->id = $_GET['id'];
+            if ($order->delete()) {
+                http_response_code(200);
+                echo json_encode(['message' => 'Order deleted']);
+            } else {
+                http_response_code(500);
+                echo json_encode(['message' => 'Failed to delete order']);
+            }
+    break;
     default:
         http_response_code(405);
         echo json_encode(['message' => 'Method not allowed']);

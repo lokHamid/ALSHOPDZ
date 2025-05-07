@@ -184,15 +184,29 @@ class Product {
     }
 
     public function deleteById($id) {
-        $sql = "DELETE FROM options WHERE product_id = ?";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute([$id]);
-        
-        $sql = "DELETE FROM {$this->table} WHERE id = ?";
-        $stmt = $this->conn->prepare($sql);
         $id = htmlspecialchars(strip_tags($id));
-        
-        return $stmt->execute([$id]) && $stmt->rowCount() > 0;
+    
+        try {
+            $sql = "DELETE FROM images WHERE option_id IN (SELECT id FROM options WHERE product_id = ?)";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([$id]);
+    
+            $sql = "DELETE FROM options WHERE product_id = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([$id]);
+    
+            $sql = "DELETE FROM {$this->table} WHERE id = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([$id]);
+    
+            return $stmt->rowCount() > 0;
+    
+        } catch (PDOException $e) {
+            error_log("Delete error: " . $e->getMessage());
+            http_response_code(500);
+            echo json_encode(["message" => "Internal server error", "error" => $e->getMessage()]);
+            return false;
+        }
     }
 }
 
@@ -257,8 +271,9 @@ switch($method) {
         break;
         
     case 'DELETE':
-        if(isset($_GET['id'])) {
-            $id = $_GET['id'];
+        parse_str($_SERVER['QUERY_STRING'], $params);
+        if(isset($params['id'])) {
+            $id = $params['id'];
             if($product->deleteById($id)) {
                 http_response_code(200);
                 echo json_encode(['message' => 'Product deleted']);

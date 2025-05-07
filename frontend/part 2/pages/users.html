@@ -33,11 +33,9 @@
     <!-- MAIN CONTENT -->
     <div class="toggle-btns-section">
         <div class="selection">
-            <button class="filter-btn active">All Orders</button>
-            <button class="filter-btn">Pending</button>
-            <button class="filter-btn">Delivered</button>
-            <button class="filter-btn">Shipped</button>
-            <button class="filter-btn">Cancelled</button>
+            <button class="filter-btn active" data-status="all">All Users</button>
+            <button class="filter-btn" data-status="active">Active</button>
+            <button class="filter-btn" data-status="inactive">Inactive</button>
         </div>
 
         <hr class="divider">
@@ -58,6 +56,7 @@
             </div>
             
         </div>
+        
     </div>
 
     <script src="../scripts/users.js"></script>

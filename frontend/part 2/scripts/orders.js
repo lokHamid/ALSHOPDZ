@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const tableContainer = document.querySelector(".grid-table");
     const orders = await getAllOrders();
 
-    console.log(orders);
 
     orders.forEach(order => {
         row = document.createElement('div');

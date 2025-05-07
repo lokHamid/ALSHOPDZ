@@ -321,3 +321,68 @@ h3{
 .dropdown-option.cancelled {
     color: #c53030;
 }
+
+.status-dropdown {
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.status-dropdown:focus {
+    outline: none;
+    border-color: #007BFF;
+}
+
+.status-dropdown.updating {
+    background-color: #e0e0e0;
+}
+.grid-cell {
+    padding: 12px 16px;
+    border-bottom: 1px solid #edf2f7;
+    display: flex;
+    align-items: center;
+    font-size: 0.95em;
+    color: #2d3748;
+    position: relative; /* Added to allow dropdown positioning */
+}
+
+.status-dropdown {
+    width: 100%;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+}
+
+.status-dropdown:focus {
+    outline: none;
+    border-color: #007BFF;
+}
+
+.status-dropdown.updating {
+    background-color: #e0e0e0;
+}
+
+.status-dropdown option {
+    padding: 8px 12px;
+}
+
+.status-dropdown option.pending {
+    color: #b7791f;
+}
+
+.status-dropdown option.active {
+    color: #3182ce;
+}
+
+.status-dropdown option.completed {
+    color: #2f855a;
+}
+
+.status-dropdown option.cancelled {
+    color: #c53030;
+}
