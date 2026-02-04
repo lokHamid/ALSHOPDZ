@@ -1,5 +1,12 @@
 # Tech E-Commerce Web Application
 
+[![Apache](https://img.shields.io/badge/Apache-2.0-D22128?logo=apache&logoColor=white)](https://httpd.apache.org/)
+[![HTML5](https://img.shields.io/badge/HTML5-5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-3-1572B6?logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![PHP](https://img.shields.io/badge/PHP-8+-777BB4?logo=php&logoColor=white)](https://www.php.net/)
+
+
 This is a full-stack e-commerce web application focused on selling technology products such as phones, tablets, PCs, and other electronic devices. The project is built using HTML, CSS, JavaScript, and PHP, and includes both a customer-facing interface and an admin dashboard.
 
 ## Features
