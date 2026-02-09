@@ -62,28 +62,29 @@ index.php
 ### Main Pages
 | Home | Shop |
 |------|------|
-| <img src="frontend/assets/screenshots/127.0.0.1_5500_frontend_part%201_pages_index.html.png" height="480" /> | <img src="frontend/assets/screenshots/127.0.0.1_5500_frontend_part%201_pages_shop.html.png" height="480" /> |
+| <img src="frontend/assets/screenshots/127.0.0.1_5500_frontend_part1_pages_index.png" height="480" /> | <img src="frontend/assets/screenshots/127.0.0.1_5500_frontend_part1_pages_shop.png" height="480" /> |
 
 ---
 
 ### Product Details
 | Product 1 | Product 2 |
 |-----------|-----------|
-| <img src="frontend/assets/screenshots/127.0.0.1_5500_frontend_part%201_pages_product_details.html.png" height="480" /> | <img src="frontend/assets/screenshots/127.0.0.1_5500_frontend_part%201_pages_product_details.html (1).png" height="480" /> |
+| <img src="frontend/assets/screenshots/127.0.0.1_5500_frontend_part1_pages_product_details1.png" height="480" /> | <img src="frontend/assets/screenshots/127.0.0.1_5500_frontend_part1_pages_product_details2.png" height="480" /> |
 
 ---
 
 ### Checkout & Orders
 | Checkout | Orders |
 |----------|--------|
-| <img src="frontend/assets/screenshots/127.0.0.1_5500_frontend_part%201_pages_checkout.html.png" height="480" /> | <img src="frontend/assets/screenshots/127.0.0.1_5500_frontend_part%202_pages_orders.html.png" height="480" /> |
+| <img src="frontend/assets/screenshots/127.0.0.1_5500_frontend_part1_pages_checkout.png" height="480" /> | <img src="frontend/assets/screenshots/127.0.0.1_5500_frontend_part2_pages_orders.png" height="480" /> |
 
 ---
 
 ### Other Screens
 | Screenshot 1 | Screenshot 2 |
 |--------------|--------------|
-| <img src="frontend/assets/screenshots/Screenshot from 2025-12-02 20-09-34.png" height="480" /> | <img src="frontend/assets/screenshots/Screenshot from 2025-12-02 20-10-23.png" height="480" /> |
+| <img src="frontend/assets/screenshots/Screenshot_2025-12-02_20-09-34.png" height="480" /> | <img src="frontend/assets/screenshots/Screenshot_2025-12-02_20-10-23.png" height="480" /> |
+
 
 ## Installation
 
