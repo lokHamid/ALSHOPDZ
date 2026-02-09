@@ -83,8 +83,7 @@ index.php
 ### Other Screens
 | Screenshot 1 | Screenshot 2 |
 |--------------|--------------|
-| <img src="frontend/assets/screenshots/Screenshot_2025-12-02_20-09-34.png" height="480" /> | <img src="frontend/assets/screenshots/Screenshot_2025-12-02_20-10-23.png" height="480" /> |
-
+| <img src="frontend/assets/screenshots/Screenshot from 2025-12-02 20-09-34.png" height="480" /> | <img src="frontend/assets/screenshots/Screenshot from 2025-12-02 20-10-23.png" height="480" /> |
 
 ## Installation
 
